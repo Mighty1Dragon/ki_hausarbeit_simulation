@@ -18,6 +18,9 @@ pub trait Genome {
     fn compare_strength(&self, other: &Self) -> f32;
     fn increase_energy(&mut self, energy: f32);
     fn has_enough_energy(&self) -> bool;
+    fn get_weight(&self) -> f32;
+    fn get_power(&self) -> f32;
+    fn get_speed(&self) -> f32;
     //fn choose_direction(())
 }
 
@@ -108,7 +111,19 @@ impl Genome for BasicGenome {
     }
 
     fn has_enough_energy(&self) -> bool {
-        0.0 <= self.energy - (2.0*self.weight)
+        0.0 <= self.energy - self.weight//(2.0*self.weight)
+    }
+
+    fn get_power(&self) -> f32 {
+        self.power
+    }
+
+    fn get_speed(&self) -> f32 {
+        self.speed
+    }
+
+    fn get_weight(&self) -> f32 {
+        self.weight
     }
 
 }

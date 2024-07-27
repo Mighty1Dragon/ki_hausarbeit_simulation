@@ -3,10 +3,26 @@
 version = 3
 
 [[package]]
+name = "bitvec"
+version = "0.17.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41262f11d771fd4a61aa3ce019fca363b4b6c282fca9da2a31186d3965a47a5c"
+dependencies = [
+ "either",
+ "radium",
+]
+
+[[package]]
 name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
+
+[[package]]
+name = "either"
+version = "1.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "60b1af1c220855b6ceac025d3f6ecdd2b7c4894bfe9cd9bda4fbb4bc7c0d4cf0"
 
 [[package]]
 name = "getrandom"
@@ -24,6 +40,7 @@ name = "ki_hausarbeit_simulation"
 version = "0.1.0"
 dependencies = [
  "rand",
+ "shuffle",
 ]
 
 [[package]]
@@ -37,6 +54,12 @@ name = "ppv-lite86"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
+
+[[package]]
+name = "radium"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "def50a86306165861203e7f84ecffbbdfdea79f0e51039b33de1e952358c47ac"
 
 [[package]]
 name = "rand"
@@ -66,6 +89,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 dependencies = [
  "getrandom",
+]
+
+[[package]]
+name = "shuffle"
+version = "0.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2fecbe806be0726e22a6192ce0ec2f90e0798946ae0cbc2c10c7a3c68cae4eb2"
+dependencies = [
+ "bitvec",
+ "rand",
 ]
 
 [[package]]
