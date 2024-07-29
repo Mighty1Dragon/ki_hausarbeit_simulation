@@ -50,6 +50,8 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                 carni.insert(k, E::new(genome::EatingType::Carnivore));
             }
         };
+
+        print_Field(&plants,&herbi,&carni);
         BasicSimulation {
             epochs, sim_time, mutation_chance,
             plants, herbi, carni
@@ -109,6 +111,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     }
                 }
                 println!("epoch: {} simulation step: {} -> herbis: {} carnis: {}",e+1,s+1,self.herbi.len(),self.carni.len());
+                //print_Field(&self.plants, &self.herbi, &self.carni);
             }//Sim Steps
             let herbi_keys: Vec<(i32, i32)> = self.herbi.keys().cloned().collect();
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
@@ -126,6 +129,9 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     self.herbi.remove(&h);
                 }
             }
+
+            println!("remaining Herbivores: {}", self.herbi.len());
+            println!("remaining Carnivores: {}", self.carni.len());
             if self.carni.len() <= 1 {
                 println!("carnivores died out");
                 break;
@@ -158,6 +164,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                          .expect("no parent 1")
                          .crossover(self.herbi.get(parent2)// <--- CROSSOVER
                          .expect("no parent 2")));
+                    next_gen_herbi.get_mut(&k).expect("fail to mutate herbi").mutate(self.mutation_chance);//<-----MUTATE
                 }
             };
             self.herbi = next_gen_herbi;
@@ -172,11 +179,11 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                          .expect("no parent 1")
                          .crossover(self.carni.get(parent2)// <--- CROSSOVER
                          .expect("no parent 2")));
+                    next_gen_carni.get_mut(&k).expect("fail to mutate carni").mutate(self.mutation_chance);//<-----MUTATE
                 }
             };
             self.carni = next_gen_carni;
-            //Epoch Output:
-
+           
         }
         
     }
@@ -189,26 +196,163 @@ fn gen_pos() -> (i32, i32){
     (rng.gen_range(-50..51), rng.gen_range(-50..51))
 }
 
+enum Direction {
+    Left,
+    Right,
+    Up,
+    Down,
+}
+
+impl Direction {
+    fn dir(&self) -> (i32,i32){
+        match self {
+            Direction::Left => (-1,0),
+            Direction::Right => (1,0),
+            Direction::Up => (0,-1),
+            Direction::Down => (0,1),
+        }
+    }
+    fn ord(&self) -> usize {
+        match self {
+            Direction::Left => 0,
+            Direction::Right => 1,
+            Direction::Up => 2,
+            Direction::Down => 3,
+        }
+    }
+    fn get(num: usize) -> Direction{
+        match num {
+            0 => Direction::Left,
+            1 => Direction::Right,
+            2 => Direction::Up,
+            3 => Direction::Down,
+            _ => panic!("num to high")
+        }
+    }
+}
+
+fn calculate_reward(dir:&(i32,i32) ,a: &(i32,i32), b:&(i32,i32), reward: i32) -> i32 {
+    let mut x = 0;
+    let mut y = 0;
+    let c = (a.0 + dir.0, a.1 + dir.1);
+    if c.0 > b.0 {
+        x = c.0 - b.0;
+    }else{
+        x = b.0 - c.0;
+    };
+    if c.1 > b.1 {
+        y = c.1 - b.1;
+    }else{
+        y = b.1 - c.1;
+    };
+    if x+y == 0 {
+        return reward;
+    }
+    reward/(x+y)
+}
+fn calculate_distance_reward<T>(current: &T, g: &(i32,i32) , xy: &(i32,i32),directions: &mut [i32;4], num:u8)where T: Genome{
+    //Left
+    directions[Direction::Left.ord()] += calculate_reward(
+        &Direction::Left.dir(), g, xy, current.get_eval(num));
+    //Right
+    directions[Direction::Right.ord()] += calculate_reward(
+        &Direction::Right.dir(), g, xy, current.get_eval(num));
+    //Up
+    directions[Direction::Up.ord()] += calculate_reward(
+        &Direction::Up.dir(), g, xy, current.get_eval(num));
+    //Down
+    directions[Direction::Down.ord()] += calculate_reward(
+        &Direction::Down.dir(), g, xy, current.get_eval(num));
+}
+
 fn herbi_detect <T,E> (h: (i32,i32), carni: &HashMap<(i32,i32),E>, herbi: &HashMap<(i32,i32),T>, plants: &HashMap<(i32,i32),bool>) -> (i32,i32) 
     where E: Genome, T:Genome 
 {
-    let mut rng = rand::thread_rng();
-    let k = (rng.gen_range(-1..2),rng.gen_range(-1..2));
-    if carni.contains_key(&add_2x_tupel(k, h)) || herbi.contains_key(&add_2x_tupel(k, h)){
-        return (0,0);
+    let current_herbi = herbi.get(&h).expect("current herbi not available");
+    let dr = current_herbi.get_detection_range().round() as i32;
+    let mut directions = [0,0,0,0];
+    for x in (&h.0 - dr)..(&h.0 + dr){
+        for y in (&h.1 - dr)..(&h.1 + dr){
+            if x.wrapping_add(y) > dr{//to make a more round detection window
+                continue;
+            }
+            if carni.contains_key(&(x,y)){
+                calculate_distance_reward(current_herbi, &h, &(x,y), &mut directions, 1);
+            }
+            if herbi.contains_key(&(x,y)) && !(x == h.0 && y == h.1){
+
+                calculate_distance_reward(current_herbi, &h, &(x,y), &mut directions, 2);
+            }
+            if plants.contains_key(&(x,y)){
+                calculate_distance_reward(current_herbi, &h, &(x,y), &mut directions, 3);
+            }
+        };
+    };
+    let mut rng = thread_rng();
+    let r = rng.gen_range(0..4);
+    //prevent loss of gene by collision
+    for i in 0..directions.len(){
+        if herbi.contains_key(&(h.0+Direction::get(i).dir().0, h.1+Direction::get(i).dir().1)){
+            directions[i] = i32::min_value();
+        }
+    };    
+    let mut choice = (directions[r], Direction::get(r));
+    for i in 0..directions.len(){
+        if directions[i] > choice.0{
+            choice = (directions[i], Direction::get(i));
+        }
+    };  
+    
+    if choice.0 < 0 {
+        return (0, 0);
     }
-    k
+    (choice.1.dir().0, choice.1.dir().1)
+
 }
 
 fn carni_detect <T,E> (h: (i32,i32), carni: &HashMap<(i32,i32),E>, herbi: &HashMap<(i32,i32),T>) -> (i32,i32) 
     where E: Genome, T:Genome 
 {
-    let mut rng = rand::thread_rng();
-    (rng.gen_range(-1..2),rng.gen_range(-1..2))
+    let current_carni = carni.get(&h).expect("current carni not available");
+    let dr = current_carni.get_detection_range().round() as i32;
+    let mut directions = [0,0,0,0];
+    for x in (&h.0 - dr)..(&h.0 + dr){
+        for y in (&h.1 - dr)..(&h.1 + dr){
+            if x.wrapping_add(y) > dr{//to make a more round detection window
+                continue;
+            }
+            if carni.contains_key(&(x,y)) && !(x == h.0 && y == h.1){
+                calculate_distance_reward(current_carni, &h, &(x,y), &mut directions, 1);
+            }
+            if herbi.contains_key(&(x,y)){
+
+                calculate_distance_reward(current_carni, &h, &(x,y), &mut directions, 2);
+            }
+        };
+         
+    };
+    let mut rng = thread_rng();
+    let r = rng.gen_range(0..4);
+    //prevent loss of gene by collision
+    for i in 0..directions.len(){
+        if carni.contains_key(&(h.0+Direction::get(i).dir().0, h.1+Direction::get(i).dir().1)){
+            directions[i] = i32::min_value();
+        }
+    };
+    let mut choice = (directions[r], Direction::get(r));
+    for i in 0..directions.len(){
+        if directions[i] > choice.0{
+            choice = (directions[i], Direction::get(i));
+        }
+    };  
+    if choice.0 < 0 {
+        return (h.0, h.1);
+    }
+    (choice.1.dir().0, choice.1.dir().1)
 }
 
 fn add_2x_tupel(a:(i32,i32), b:(i32,i32)) -> (i32,i32){
-    ( a.0 + b.0 , a.1 + b.1)
+    ( a.0.wrapping_add(b.0) , a.1.wrapping_add(b.1))
 }
 
 fn gen_vec_pos(max: usize)-> usize{
@@ -216,7 +360,24 @@ fn gen_vec_pos(max: usize)-> usize{
     rng.gen_range(0..max)
 }
 
+fn print_Field<T,E>(plants: &HashMap<(i32,i32),bool>, herbi: &HashMap<(i32,i32),T>, carni: &HashMap<(i32,i32),E>){
+    for y in -50..50 {
+        for x in -50..50{
+            if carni.contains_key(&(x,y)) {
+                print!("C");
+            }else if herbi.contains_key(&(x,y)) {
+                print!("H")
+            }else if plants.contains_key(&(x,y)) {
+                print!("*");
+            }else{
+                print!("_")
+            }
+        }
+        println!();
+    }
+}
+
 fn main() {
-    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(10, 20, 5);
+    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(10, 30, 5);
     sim.run();
 }
