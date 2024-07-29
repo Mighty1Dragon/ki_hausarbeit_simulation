@@ -79,12 +79,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                 //Herbi move
                 for h in herbi_keys{
                     if self.carni.contains_key(&h) {
-                        let dead = self.herbi.remove(&h);
-                        self.carni.get_mut(&h)
-                        .expect("carni not existend")
-                        .increase_energy(
-                            dead.expect("herbi not existend").get_weight()
-                        );
+                        carni_eat(&h, &mut self.carni, &mut self.herbi); // <--------SELECTION
                         continue;
                     }
                     //choosing direction
@@ -106,8 +101,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     let new_pos = add_2x_tupel(carni_direction, c);
                     self.carni.insert(new_pos, temp);
                     if self.herbi.contains_key(&new_pos) {
-                        let dead = self.herbi.remove(&new_pos).expect("no herbi :(");
-                        self.carni.get_mut(&new_pos).expect("no carni :(").increase_energy(dead.get_weight());
+                        carni_eat(&c, &mut self.carni, &mut self.herbi); // <--------SELECTION
                     }
                 }
                 println!("epoch: {} simulation step: {} -> herbis: {} carnis: {}",e+1,s+1,self.herbi.len(),self.carni.len());
@@ -115,15 +109,14 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             }//Sim Steps
             let herbi_keys: Vec<(i32, i32)> = self.herbi.keys().cloned().collect();
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
-            let mut next_gen_herbi: HashMap<(i32,i32), T> = HashMap::new();
-            let mut next_gen_carni: HashMap<(i32,i32), E> = HashMap::new();
-            //removing starved carnivores
+
+            //removing starved carnivores <------SELECTION
             for c in carni_keys {
                 if !self.carni.get_mut(&c).expect("no carni").has_enough_energy() {
                     self.carni.remove(&c);
                 }
             }
-            //removing starved herbivores
+            //removing starved herbivores <------SELECTION
             for h in herbi_keys {
                 if !self.herbi.get_mut(&h).expect("no herbi").has_enough_energy(){
                     self.herbi.remove(&h);
@@ -153,36 +146,12 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
 
             let herbi_keys: Vec<(i32, i32)> = self.herbi.keys().cloned().collect();
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
-            //placing herbivores
-            for _ in 0..100{
-                let k = gen_pos();
-                let parent1 = herbi_keys.get(gen_vec_pos(herbi_keys.len())).expect("vec error");
-                let parent2 = herbi_keys.get(gen_vec_pos(herbi_keys.len())).expect("vec error");
-                if !next_gen_herbi.contains_key(&k){
-                    next_gen_herbi.insert(k,
-                         self.herbi.get(parent1)
-                         .expect("no parent 1")
-                         .crossover(self.herbi.get(parent2)// <--- CROSSOVER
-                         .expect("no parent 2")));
-                    next_gen_herbi.get_mut(&k).expect("fail to mutate herbi").mutate(self.mutation_chance);//<-----MUTATE
-                }
-            };
-            self.herbi = next_gen_herbi;
-            //placing carnivoress
-            for _ in 0..100{
-                let k = gen_pos();
-                let parent1 = carni_keys.get(gen_vec_pos(carni_keys.len())).expect("vec error");
-                let parent2 = carni_keys.get(gen_vec_pos(carni_keys.len())).expect("vec error");
-                if !next_gen_carni.contains_key(&k){
-                    next_gen_carni.insert(k,
-                         self.carni.get(parent1)
-                         .expect("no parent 1")
-                         .crossover(self.carni.get(parent2)// <--- CROSSOVER
-                         .expect("no parent 2")));
-                    next_gen_carni.get_mut(&k).expect("fail to mutate carni").mutate(self.mutation_chance);//<-----MUTATE
-                }
-            };
-            self.carni = next_gen_carni;
+
+            //placing herbivores <----- CROSSOVER AND MUTATION
+            self.herbi = place_genom(herbi_keys, &mut self.herbi, self.mutation_chance);
+
+            //placing carnivoress <----- CROSSOVER AND MUTATION
+            self.carni = place_genom(carni_keys, & mut self.carni, self.mutation_chance);
            
         }
         
@@ -377,7 +346,34 @@ fn print_Field<T,E>(plants: &HashMap<(i32,i32),bool>, herbi: &HashMap<(i32,i32),
     }
 }
 
+fn carni_eat<T,E>(pos: &(i32,i32), carni: &mut HashMap<(i32,i32), E>, herbi: &mut HashMap<(i32,i32), T>)where T: Genome, E: Genome{
+    let dead = herbi.remove(pos);
+    carni.get_mut(pos)
+    .expect("carni not existend")
+    .increase_energy(
+        dead.expect("herbi not existend").get_weight()
+    );
+}
+
+fn place_genom<T>(keys: Vec<(i32,i32)>, map: &mut HashMap<(i32,i32), T>, chance: i32) -> HashMap<(i32,i32), T> where T: Genome{
+    let mut next_gen: HashMap<(i32,i32), T> = HashMap::new();
+    for _ in 0..100{
+        let k = gen_pos();
+        let parent1 = keys.get(gen_vec_pos(keys.len())).expect("vec error");
+        let parent2 = keys.get(gen_vec_pos(keys.len())).expect("vec error");
+        if !next_gen.contains_key(&k){
+            next_gen.insert(k,
+                 map.get(parent1)
+                 .expect("no parent 1")
+                 .crossover(map.get(parent2)// <--- CROSSOVER
+                 .expect("no parent 2")));
+            next_gen.get_mut(&k).expect("fail to mutate herbi").mutate(chance);//<-----MUTATE
+        }
+    };
+    next_gen
+}
+
 fn main() {
-    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(10, 30, 5);
+    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(40, 30, 5);
     sim.run();
 }
