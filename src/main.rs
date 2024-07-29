@@ -1,4 +1,5 @@
-use std::{collections::{btree_map::Keys, HashMap}, rc::Rc, thread::Thread};
+use core::time;
+use std::{collections::{btree_map::Keys, HashMap}, fs::{DirBuilder, File}, io::{stdout, Write}, path::Path, rc::Rc, thread::{self, Thread}};
 
 use genome::{BasicGenome, Genome};
 use rand::{thread_rng, Rng};
@@ -9,9 +10,11 @@ mod genome;
 mod ui;
 
 const PLANT_ENERGY: f32 = 1.0;
+const WATCHING: bool = false;
+const MILLIS_PER_FRAME: u64 = 1000; //in milliseconds
 
 trait Simulation{
-    fn new(epochs: u16, sim_time: u16, mutation_chance: i32) -> Self;
+    fn new(epochs: u16, sim_time: u16, mutation_chance: i32, file: File) -> Self;
     fn run(&mut self);
 }
 
@@ -19,13 +22,14 @@ struct BasicSimulation <T : Genome, E : Genome>{
     epochs: u16,
     sim_time: u16,
     mutation_chance: i32,
+    file: File,
     plants: HashMap<(i32,i32), bool>,
     herbi: HashMap<(i32, i32), T>,
     carni: HashMap<(i32, i32), E>,
 }
 
 impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>{
-    fn new(epochs: u16, sim_time: u16, mutation_chance: i32) -> Self {
+    fn new(epochs: u16, sim_time: u16, mutation_chance: i32, mut file: File) -> Self {
         let mut plants:HashMap<(i32,i32), bool> = HashMap::new();
         let mut herbi:HashMap<(i32,i32), T> = HashMap::new();
         let mut carni:HashMap<(i32,i32), E> = HashMap::new();
@@ -51,9 +55,10 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             }
         };
 
-        print_Field(&plants,&herbi,&carni);
+        file_print(&mut file,format!("Simulation Start:\n"));
+        //print_Field(&plants,&herbi,&carni,&mut file);
         BasicSimulation {
-            epochs, sim_time, mutation_chance,
+            epochs, sim_time, mutation_chance, file,
             plants, herbi, carni
         }
     }
@@ -61,16 +66,22 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
     fn run(&mut self) {
         for e in 0..self.epochs{
             //Epoch Output
+            file_print(&mut self.file, format!("###########################\n"));
+            file_print(&mut self.file, format!("------EPOCH: {}---------\n", e+1));
+            file_print(&mut self.file, format!("###########################\n"));
             let mut herbi_keys: Vec<(i32,i32)> = self.herbi.keys().cloned().collect();
             let mut carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
-            println!("{}. epoch genes:", e+1);
+    
             for g in herbi_keys{
-                println!("{}",self.herbi.get(&g).expect("herbi not available").to_string());
+                file_print(&mut self.file,format!("{}\n",self.herbi.get(&g).expect("herbi not available").to_string()));
             }
             for g in carni_keys{
-                println!("{}",self.carni.get(&g).expect("herbi not available").to_string());
+                file_print(&mut self.file,format!("{}\n",self.carni.get(&g).expect("herbi not available").to_string()));
             }
             for s in 0..self.sim_time{
+                if WATCHING {
+                    animate(&self.plants, &self.herbi, &self.carni);
+                }
                 let mut rng = thread_rng();
                 let mut herbi_keys: Vec<(i32,i32)> = self.herbi.keys().cloned().collect();
                 let mut carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
@@ -104,9 +115,10 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                         carni_eat(&new_pos, &mut self.carni, &mut self.herbi); // <--------SELECTION
                     }
                 }
-                println!("epoch: {} simulation step: {} -> herbis: {} carnis: {}",e+1,s+1,self.herbi.len(),self.carni.len());
+                file_print(&mut self.file,format!("epoch: {} simulation step: {} -> herbis: {} carnis: {}\n",e+1,s+1,self.herbi.len(),self.carni.len()));
                 //print_Field(&self.plants, &self.herbi, &self.carni);
             }//Sim Steps
+            
             let herbi_keys: Vec<(i32, i32)> = self.herbi.keys().cloned().collect();
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
 
@@ -122,15 +134,26 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     self.herbi.remove(&h);
                 }
             }
+            
+            let herbi_keys: Vec<(i32, i32)> = self.herbi.keys().cloned().collect();
+            let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
 
-            println!("remaining Herbivores: {}", self.herbi.len());
-            println!("remaining Carnivores: {}", self.carni.len());
+            file_print(&mut self.file, format!("surviving genes:\n"));
+            for g in herbi_keys{
+                file_print(&mut self.file,format!("{}\n",self.herbi.get(&g).expect("herbi not available").to_string()));
+            }
+            for g in carni_keys{
+                file_print(&mut self.file,format!("{}\n",self.carni.get(&g).expect("herbi not available").to_string()));
+            }
+
+            file_print(&mut self.file,format!("remaining Herbivores: {}\n", self.herbi.len()));
+            file_print(&mut self.file,format!("remaining Carnivores: {}\n", self.carni.len()));
             if self.carni.len() <= 1 {
-                println!("carnivores died out");
+                file_print(&mut self.file,format!("carnivores died out\n"));
                 break;
             }
             if self.herbi.len() <= 1 {
-                println!("herbivores died out");
+                file_print(&mut self.file,format!("herbivores died out\n"));
                 break;
             }
             //removing plants
@@ -329,21 +352,28 @@ fn gen_vec_pos(max: usize)-> usize{
     rng.gen_range(0..max)
 }
 
-fn print_Field<T,E>(plants: &HashMap<(i32,i32),bool>, herbi: &HashMap<(i32,i32),T>, carni: &HashMap<(i32,i32),E>){
-    for y in -50..50 {
-        for x in -50..50{
-            if carni.contains_key(&(x,y)) {
-                print!("C");
-            }else if herbi.contains_key(&(x,y)) {
-                print!("H")
-            }else if plants.contains_key(&(x,y)) {
-                print!("*");
-            }else{
-                print!("_")
+fn animate<T,E>(plants: &HashMap<(i32,i32),bool>, herbi: &HashMap<(i32,i32),T>, carni: &HashMap<(i32,i32),E>){
+    match stdout().flush(){
+        Ok(_) => {
+            for y in -50..50 {
+                for x in -50..50{
+                    if carni.contains_key(&(x,y)) {
+                        print!("C");
+                    }else if herbi.contains_key(&(x,y)) {
+                        print!("H");
+                    }else if plants.contains_key(&(x,y)) {
+                        print!("*");
+                    }else{
+                        print!("_");
+                    }
+                }
+                println!();
+                
             }
         }
-        println!();
-    }
+        Err(e) => panic!("in animate: {}",e)
+    };
+    thread::sleep(time::Duration::from_millis(MILLIS_PER_FRAME))
 }
 
 fn carni_eat<T,E>(pos: &(i32,i32), carni: &mut HashMap<(i32,i32), E>, herbi: &mut HashMap<(i32,i32), T>)where T: Genome, E: Genome{
@@ -372,8 +402,13 @@ fn place_genom<T>(keys: Vec<(i32,i32)>, map: &mut HashMap<(i32,i32), T>, chance:
     };
     next_gen
 }
+fn file_print(file: &mut File, string:String){
+    file.write(string.as_bytes()).expect("write went wrong");
+}
 
 fn main() {
-    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(40, 30, 5);
+    let file_name = "test";
+    let file = File::create(format!("data/{}.txt", file_name)).expect("file problem");
+    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(40, 30, 5, file);
     sim.run();
 }
