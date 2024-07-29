@@ -101,7 +101,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     let new_pos = add_2x_tupel(carni_direction, c);
                     self.carni.insert(new_pos, temp);
                     if self.herbi.contains_key(&new_pos) {
-                        carni_eat(&c, &mut self.carni, &mut self.herbi); // <--------SELECTION
+                        carni_eat(&new_pos, &mut self.carni, &mut self.herbi); // <--------SELECTION
                     }
                 }
                 println!("epoch: {} simulation step: {} -> herbis: {} carnis: {}",e+1,s+1,self.herbi.len(),self.carni.len());
