@@ -12,6 +12,8 @@ mod ui;
 const PLANT_ENERGY: f32 = 1.0;
 const WATCHING: bool = false;
 const MILLIS_PER_FRAME: u64 = 1000; //in milliseconds
+const MEAT_EFFICIENCY: f32 = 2.0;
+const STRENGTH_CONTEST: bool = true;
 
 trait Simulation{
     fn new(epochs: u16, sim_time: u16, mutation_chance: i32, file: File) -> Self;
@@ -88,31 +90,44 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                 herbi_keys.shuffle( &mut rng);
                 carni_keys.shuffle( &mut rng);
                 //Herbi move
-                for h in herbi_keys{
-                    if self.carni.contains_key(&h) {
-                        carni_eat(&h, &mut self.carni, &mut self.herbi); // <--------SELECTION
-                        continue;
-                    }
-                    //choosing direction
-                    let herbi_direction = herbi_detect(h, &self.carni, &self.herbi, &self.plants);
-                    let temp = self.herbi.remove(&h).expect("herbi does not exist");
-                    //moving a step
-                    let new_pos = add_2x_tupel(herbi_direction, h);
-                    self.herbi.insert(new_pos, temp);
+                for oh in herbi_keys{
+                    let mut h = oh;
+                    //move as often as you have speed
+                    let speed = self.herbi.get(&h).expect("no herbi: this is a bug i couldn't fix. just restart").get_speed().round() as i32;
+                    for _ in 0..speed {
+                        
+                        if self.carni.contains_key(&h) && 0.0 < compare_strength(self.carni.get(&h).expect("com str"),self.herbi.get(&h).expect("com str")) {
+                            carni_eat(&h, &mut self.carni, &mut self.herbi); // <--------SELECTION
+                            break;
+                        }
+                        //choosing direction
+                        let herbi_direction = herbi_detect(h, &self.carni, &self.herbi, &self.plants);
+                        let temp = self.herbi.remove(&h).expect("herbi does not exist");
+                        //moving a step
+                        let new_pos = add_2x_tupel(herbi_direction, h);
+                        h = new_pos;
+                        self.herbi.insert(new_pos, temp);
 
-                    if self.plants.contains_key(&new_pos){
-                        self.plants.remove_entry(&new_pos);
-                        self.herbi.get_mut(&new_pos).expect("herbi does not exist").increase_energy(PLANT_ENERGY);
+                        if self.plants.contains_key(&new_pos){
+                            self.plants.remove_entry(&new_pos);
+                            self.herbi.get_mut(&new_pos).expect("herbi does not exist").increase_energy(PLANT_ENERGY);
+                        }
                     }
                 }
                 //Carni Move
-                for c in carni_keys {
-                    let carni_direction = carni_detect(c, &self.carni, &self.herbi);
-                    let temp = self.carni.remove(&c).expect("no carni :(");
-                    let new_pos = add_2x_tupel(carni_direction, c);
-                    self.carni.insert(new_pos, temp);
-                    if self.herbi.contains_key(&new_pos) {
-                        carni_eat(&new_pos, &mut self.carni, &mut self.herbi); // <--------SELECTION
+                for oc in carni_keys {
+                    let mut c = oc;
+                    let speed = self.carni.get(&c).expect("no carni: this is a bug i couldn't fix. just restart").get_speed().round() as i32;
+                    //move as often as you have speed
+                    for _ in 0..speed {
+                        let carni_direction = carni_detect(c, &self.carni, &self.herbi);
+                        let temp = self.carni.remove(&c).expect("no carni :(");
+                        let new_pos = add_2x_tupel(carni_direction, c);
+                        c = new_pos;
+                        self.carni.insert(new_pos, temp);
+                        if self.herbi.contains_key(&new_pos) && 0.0 < compare_strength(self.carni.get(&c).expect("com str"),self.herbi.get(&c).expect("com str")){
+                            carni_eat(&new_pos, &mut self.carni, &mut self.herbi); // <--------SELECTION
+                        }
                     }
                 }
                 file_print(&mut self.file,format!("epoch: {} simulation step: {} -> herbis: {} carnis: {}\n",e+1,s+1,self.herbi.len(),self.carni.len()));
@@ -381,7 +396,7 @@ fn carni_eat<T,E>(pos: &(i32,i32), carni: &mut HashMap<(i32,i32), E>, herbi: &mu
     carni.get_mut(pos)
     .expect("carni not existend")
     .increase_energy(
-        dead.expect("herbi not existend").get_weight()
+        calculate_meat_efficiency(dead.expect("herbi not existend").get_weight())
     );
 }
 
@@ -404,6 +419,14 @@ fn place_genom<T>(keys: Vec<(i32,i32)>, map: &mut HashMap<(i32,i32), T>, chance:
 }
 fn file_print(file: &mut File, string:String){
     file.write(string.as_bytes()).expect("write went wrong");
+}
+
+fn compare_strength<T: Genome,E: Genome>(carni: &E, herbi: &T) -> f32 {
+    carni.get_power() - herbi.get_power()
+}
+
+fn calculate_meat_efficiency(weight: f32) -> f32{
+    weight * MEAT_EFFICIENCY
 }
 
 fn main() {

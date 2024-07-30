@@ -14,7 +14,7 @@ pub trait Genome{
     fn to_string(&self) -> String;
     fn get_detection_range(&self) -> f32;
     //fn evaluate_plant(plant: i32);
-    fn compare_strength(&self, other: &Self) -> f32;
+    //fn compare_strength(&self, other: &Self) -> f32;
     fn increase_energy(&mut self, energy: f32);
     fn has_enough_energy(&self) -> bool;
     fn get_weight(&self) -> f32;
@@ -112,9 +112,9 @@ impl Genome for BasicGenome {
         }
     }
 */
-    fn compare_strength(&self, other: &Self) -> f32 {
+   /* fn compare_strength(&self, other: &Self) -> f32 {
         self.power*self.weight - self.power*self.weight
-    }
+    }*/
 
     fn get_detection_range(&self) -> f32 {
         self.detection
@@ -125,11 +125,11 @@ impl Genome for BasicGenome {
     }
 
     fn has_enough_energy(&self) -> bool {
-        0.0 <= self.energy - self.weight//(2.0*self.weight)
+        0.0 <= self.energy - 0.3 * ((0.5 *self.weight) * self.speed) - 0.7 * (self.power * (self.weight * 0.5))
     }
 
     fn get_power(&self) -> f32 {
-        self.power
+        self.power * self.weight
     }
 
     fn get_speed(&self) -> f32 {
