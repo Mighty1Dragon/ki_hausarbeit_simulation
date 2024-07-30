@@ -151,7 +151,9 @@ impl Genome for BasicGenome {
     }
 
 }
+
 #[derive(Debug, Clone)]
+#[allow(warnings)]
 pub enum EatingType {
     Carnivore,
     Herbivore,

@@ -1,13 +1,11 @@
 use core::time;
-use std::{collections::{btree_map::Keys, HashMap}, fs::{DirBuilder, File}, io::{stdout, Write}, path::Path, rc::Rc, thread::{self, Thread}};
+use std::{collections:: HashMap, fs:: File, io::{stdout, Write}, thread};
 
 use genome::{BasicGenome, Genome};
 use rand::{thread_rng, Rng};
 use rand::seq::SliceRandom;
-use rand::rngs::mock::StepRng;
 
 mod genome;
-mod ui;
 
 const PLANT_ENERGY: f32 = 1.0;
 const WATCHING: bool = false;
@@ -71,8 +69,8 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             file_print(&mut self.file, format!("###########################\n"));
             file_print(&mut self.file, format!("------EPOCH: {}---------\n", e+1));
             file_print(&mut self.file, format!("###########################\n"));
-            let mut herbi_keys: Vec<(i32,i32)> = self.herbi.keys().cloned().collect();
-            let mut carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
+            let herbi_keys: Vec<(i32,i32)> = self.herbi.keys().cloned().collect();
+            let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
     
             for g in herbi_keys{
                 file_print(&mut self.file,format!("{}\n",self.herbi.get(&g).expect("herbi not available").to_string()));
@@ -239,8 +237,8 @@ impl Direction {
 }
 
 fn calculate_reward(dir:&(i32,i32) ,a: &(i32,i32), b:&(i32,i32), reward: i32) -> i32 {
-    let mut x = 0;
-    let mut y = 0;
+    let x;
+    let y;
     let c = (a.0 + dir.0, a.1 + dir.1);
     if c.0 > b.0 {
         x = c.0 - b.0;
@@ -422,7 +420,11 @@ fn file_print(file: &mut File, string:String){
 }
 
 fn compare_strength<T: Genome,E: Genome>(carni: &E, herbi: &T) -> f32 {
-    carni.get_power() - herbi.get_power()
+    if STRENGTH_CONTEST {
+        carni.get_power() - herbi.get_power()
+    }else{
+        1.0
+    }
 }
 
 fn calculate_meat_efficiency(weight: f32) -> f32{
