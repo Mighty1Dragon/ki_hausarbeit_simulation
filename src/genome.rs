@@ -78,6 +78,19 @@ impl Genome for BasicGenome {
             6 => self.eval_weight_3 = mutate_i32_gene(self.eval_weight_3, ifrom, ito),
             _ => panic!("choosen gene does not exist")
         }
+        if self.weight < 0.1 {
+            self.weight = 0.1;
+        }
+        if self.power < 0.0 {
+            self.power = 0.0;
+        }
+        if self.speed < 0.0 {
+            self.speed = 0.0;
+        }
+        
+        if self.detection < 0.0 {
+            self.detection = 0.0;
+        }
         
     }
 
