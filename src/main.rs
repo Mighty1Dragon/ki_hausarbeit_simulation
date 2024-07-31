@@ -12,6 +12,8 @@ const WATCHING: bool = false;
 const MILLIS_PER_FRAME: u64 = 1000; //in milliseconds
 const MEAT_EFFICIENCY: f32 = 2.0;
 const STRENGTH_CONTEST: bool = true;
+const CARNI_EXTRA_MUTATION_CHANCE: i32 = 0;
+const HERBI_EXTRA_MUTATION_CHANCE: i32 = 0;
 
 trait Simulation{
     fn new(epochs: u16, sim_time: u16, mutation_chance: i32, file: File) -> Self;
@@ -83,10 +85,11 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     animate(&self.plants, &self.herbi, &self.carni);
                 }
                 let mut rng = thread_rng();
+                let mut rng2 = thread_rng();
                 let mut herbi_keys: Vec<(i32,i32)> = self.herbi.keys().cloned().collect();
                 let mut carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
                 herbi_keys.shuffle( &mut rng);
-                carni_keys.shuffle( &mut rng);
+                carni_keys.shuffle( &mut rng2);
                 //Herbi move
                 for oh in herbi_keys{
                     let mut h = oh;
@@ -115,6 +118,9 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                 //Carni Move
                 for oc in carni_keys {
                     let mut c = oc;
+                    /*if !self.carni.contains_key(&c){
+                        continue;
+                    }*/
                     let speed = self.carni.get(&c).expect("no carni: this is a bug i couldn't fix. just restart").get_speed().round() as i32;
                     //move as often as you have speed
                     for _ in 0..speed {
@@ -184,10 +190,10 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
 
             //placing herbivores <----- CROSSOVER AND MUTATION
-            self.herbi = place_genom(herbi_keys, &mut self.herbi, self.mutation_chance);
+            self.herbi = place_genom(herbi_keys, &mut self.herbi, self.mutation_chance + HERBI_EXTRA_MUTATION_CHANCE);
 
             //placing carnivoress <----- CROSSOVER AND MUTATION
-            self.carni = place_genom(carni_keys, & mut self.carni, self.mutation_chance);
+            self.carni = place_genom(carni_keys, & mut self.carni, self.mutation_chance + CARNI_EXTRA_MUTATION_CHANCE);
            
         }
         
@@ -432,8 +438,8 @@ fn calculate_meat_efficiency(weight: f32) -> f32{
 }
 
 fn main() {
-    let file_name = "test";
+    let file_name = "baseline1";
     let file = File::create(format!("data/{}.txt", file_name)).expect("file problem");
-    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(40, 30, 5, file);
+    let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(40, 30, 0, file);
     sim.run();
 }

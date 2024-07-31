@@ -4,7 +4,7 @@ use rand::Rng;
 /// 
 /// 
 /// 
-const MUTATION_DIVISION: i32 = 10000;// chance value of 1 equals a mutation chance of 0.01%
+const MUTATION_DIVISION: i32 = 1000;// chance value of 1 equals a mutation chance of 0.01%
 
 /// Genome trait
 pub trait Genome{
@@ -41,34 +41,48 @@ pub struct BasicGenome {
 impl Genome for BasicGenome {
     fn new(etype: EatingType) -> Self {
         let mut rng = rand::thread_rng();
+        let max1 = 5.0;
+        let max2 = 1000;
+        let min = -1 * max2;
+        
         BasicGenome{
             etype,
-            weight: rng.gen_range(0.1..5.0),
-            speed: rng.gen_range(0.0..5.0),
-            power: rng.gen_range(0.0..5.0),
-            detection: rng.gen_range(0.0..5.0),
+            weight: rng.gen_range(0.1..max1),
+            speed: rng.gen_range(0.0..max1),
+            power: rng.gen_range(0.0..max1),
+            detection: rng.gen_range(0.0..max1),
             energy: 0.0,
-            eval_weight_1: rng.gen_range(-1000..1000),
-            eval_weight_2: rng.gen_range(-1000..1000),
-            eval_weight_3: rng.gen_range(-1000..1000),
+            eval_weight_1: rng.gen_range(min..max2),
+            eval_weight_2: rng.gen_range(min..max2),
+            eval_weight_3: rng.gen_range(min..max2),
         }
     }
     fn mutate(&mut self, chance: i32) {
         //let chance = 5;
+        let mut rng = rand::thread_rng();
+        if chance < rng.gen_range(0..MUTATION_DIVISION) {
+            return;
+        }
         let from = -1.0;
         let to = 1.0;
         let ifrom = -50;
         let ito = 50;
-        self.weight = mutate_f32_gene(self.weight, chance, from, to);
-        self.speed = mutate_f32_gene(self.speed, chance, from, to);
-        self.power = mutate_f32_gene(self.power, chance, from, to);
-        self.detection = mutate_f32_gene(self.detection, chance, from, to);
-        self.eval_weight_1 = mutate_i32_gene(self.eval_weight_1, chance, ifrom, ito);
-        self.eval_weight_2 = mutate_i32_gene(self.eval_weight_2, chance, ifrom, ito);
-        self.eval_weight_3 = mutate_i32_gene(self.eval_weight_3, chance, ifrom, ito);
+        let choosen = rng.gen_range(0..7);
+        match choosen {
+            0 => self.weight = mutate_f32_gene(self.weight, from, to),
+            1 => self.speed = mutate_f32_gene(self.speed, from, to),
+            2 => self.power = mutate_f32_gene(self.power, from, to),
+            3 => self.detection = mutate_f32_gene(self.detection, from, to),
+            4 => self.eval_weight_1 = mutate_i32_gene(self.eval_weight_1, ifrom, ito),
+            5 => self.eval_weight_2 = mutate_i32_gene(self.eval_weight_2, ifrom, ito),
+            6 => self.eval_weight_3 = mutate_i32_gene(self.eval_weight_3, ifrom, ito),
+            _ => panic!("choosen gene does not exist")
+        }
+        
     }
 
     fn crossover(&self, other: &Self) -> Self {
+
         BasicGenome {
             etype: self.etype.clone(),
             weight: self.weight,
@@ -125,11 +139,11 @@ impl Genome for BasicGenome {
     }
 
     fn has_enough_energy(&self) -> bool {
-        0.0 <= self.energy - 0.3 * ((0.5 *self.weight) * self.speed) - 0.7 * (self.power * (self.weight * 0.5))
+        0.0 <= self.energy - 0.2 *(self.weight + self.power + self.detection + self.speed)
     }
 
     fn get_power(&self) -> f32 {
-        self.power * self.weight
+        self.power 
     }
 
     fn get_speed(&self) -> f32 {
@@ -160,24 +174,18 @@ pub enum EatingType {
     Omnivore
 }
 
-fn mutate_f32_gene(gene: f32,chance: i32, from: f32, to: f32) -> f32 {
+fn mutate_f32_gene(gene: f32, from: f32, to: f32) -> f32 {
     if from >= to {
         panic!("Ilegal argument: range to small");
     }
     let mut rng = rand::thread_rng();
-    if chance < rng.gen_range(0..MUTATION_DIVISION) {
-        return gene;
-    }
     gene + rng.gen_range(from..to+1.0)
 }
 
-fn mutate_i32_gene(gene: i32,chance: i32, from: i32, to: i32) -> i32 {
+fn mutate_i32_gene(gene: i32, from: i32, to: i32) -> i32 {
     if from >= to {
         panic!("Ilegal argument: range to small");
     }
     let mut rng = rand::thread_rng();
-    if chance < rng.gen_range(0..MUTATION_DIVISION) {
-        return gene;
-    }
     gene + rng.gen_range(from..to+1)
 }
