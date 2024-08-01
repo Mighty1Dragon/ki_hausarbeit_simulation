@@ -14,14 +14,17 @@ const MEAT_EFFICIENCY: f32 = 2.0;
 const STRENGTH_CONTEST: bool = true;
 const CARNI_EXTRA_MUTATION_CHANCE: i32 = 0;
 const HERBI_EXTRA_MUTATION_CHANCE: i32 = 0;
-const SLOW_PLANT_DECREASE: i32 = 0;
+const SLOW_PLANT_DECREASE: i32 = 3;
 const HALF_PLANT_AT: u16 = 100;
+
+const HERBI_NUM: i32 = 100;
+const CARNI_NUM: i32 = 100;
 
 trait Simulation{
     fn new(epochs: u16, sim_time: u16, mutation_chance: i32, file: File) -> Self;
     fn run(&mut self);
 }
-
+///for evaluation purposes
 struct SimulationResult{
     epoch: u16,
     average_herbi: i32,
@@ -73,7 +76,8 @@ impl SimulationResult {
 
     fn average_7tupel(&self, a: (f32,f32,f32,f32,i32,i32,i32)) -> (f32,f32,f32,f32,i32,i32,i32){
         //let a = self.borrow().average_herbi_start_attributes;
-        (a.0/self.epoch as f32,a.1/self.epoch as f32,a.2/self.epoch as f32,a.3/self.epoch as f32,a.4/self.epoch as i32,a.5/self.epoch as i32,a.6/self.epoch as i32,)
+        //(a.0/self.epoch as f32,a.1/self.epoch as f32,a.2/self.epoch as f32,a.3/self.epoch as f32,a.4/self.epoch as i32,a.5/self.epoch as i32,a.6/self.epoch as i32,)
+        a
     }
 }
 
@@ -101,14 +105,14 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             }
         };
         //placing herbivores
-        for _ in 0..100{
+        for _ in 0..HERBI_NUM{
             let k = gen_pos();
             if !herbi.contains_key(&k){
                 herbi.insert(k, T::new(genome::EatingType::Herbivore));
             }
         };
         //placing carnivoress
-        for _ in 0..100{
+        for _ in 0..CARNI_NUM{
             let k = gen_pos();
             if !carni.contains_key(&k){
                 carni.insert(k, E::new(genome::EatingType::Carnivore));
@@ -140,25 +144,30 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
             self.res.average_herbi_end_attributes = (0.0,0.0,0.0,0.0,0,0,0);
             self.res.average_carni_end_attributes = (0.0,0.0,0.0,0.0,0,0,0);
+            let herbi_len = herbi_keys.len();
+            let carni_len = carni_keys.len();
     
             for g in herbi_keys{
                 let h = self.herbi.get(&g).expect("herbi not available");
                 file_print(&mut self.file,format!("{}\n",h.to_string()));
-                if e == 0 {
+                if e == 1 {
                     
                     self.res.average_herbi_start_attributes = add_7_tupel(self.res.average_herbi_start_attributes, 
                         (h.get_weight(),h.get_speed(),h.get_power(),h.get_detection_range(),h.get_eval(1),h.get_eval(2),h.get_eval(3))
                     );
+
                 }
                 self.res.average_herbi_end_attributes = add_7_tupel(self.res.average_herbi_end_attributes, 
                     (h.get_weight(),h.get_speed(),h.get_power(),h.get_detection_range(),h.get_eval(1),h.get_eval(2),h.get_eval(3))
                 );
             }
+            self.res.average_herbi_start_attributes = average_7_tupel(self.res.average_herbi_start_attributes, herbi_len);
+            self.res.average_herbi_end_attributes = average_7_tupel(self.res.average_herbi_end_attributes, herbi_len);
             for g in carni_keys{
                 let h = self.carni.get(&g).expect("carni not available");
                 file_print(&mut self.file,format!("{}\n",h.to_string()));
                 
-                if e == 0 {
+                if e == 1 {
                     let h = self.carni.get(&g).expect("carni not available");
                     self.res.average_carni_start_attributes = add_7_tupel(self.res.average_carni_start_attributes, 
                         (h.get_weight(),h.get_speed(),h.get_power(),h.get_detection_range(),h.get_eval(1),h.get_eval(2),h.get_eval(3))
@@ -168,6 +177,8 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                     (h.get_weight(),h.get_speed(),h.get_power(),h.get_detection_range(),h.get_eval(1),h.get_eval(2),h.get_eval(3))
                 );
             }
+            self.res.average_carni_start_attributes = average_7_tupel(self.res.average_carni_start_attributes, carni_len);
+            self.res.average_carni_end_attributes = average_7_tupel(self.res.average_carni_end_attributes, carni_len);
             for s in 0..self.sim_time{
                 if WATCHING {
                     animate(&self.plants, &self.herbi, &self.carni);
@@ -289,10 +300,10 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
 
             //placing herbivores <----- CROSSOVER AND MUTATION
-            self.herbi = place_genom(herbi_keys, &mut self.herbi, self.mutation_chance + HERBI_EXTRA_MUTATION_CHANCE);
+            self.herbi = place_genom(herbi_keys, &mut self.herbi, self.mutation_chance + HERBI_EXTRA_MUTATION_CHANCE, HERBI_NUM);
 
             //placing carnivoress <----- CROSSOVER AND MUTATION
-            self.carni = place_genom(carni_keys, & mut self.carni, self.mutation_chance + CARNI_EXTRA_MUTATION_CHANCE);
+            self.carni = place_genom(carni_keys, & mut self.carni, self.mutation_chance + CARNI_EXTRA_MUTATION_CHANCE, CARNI_NUM);
            
         }
         
@@ -507,9 +518,9 @@ fn carni_eat<T,E>(pos: &(i32,i32), carni: &mut HashMap<(i32,i32), E>, herbi: &mu
     );
 }
 
-fn place_genom<T>(keys: Vec<(i32,i32)>, map: &mut HashMap<(i32,i32), T>, chance: i32) -> HashMap<(i32,i32), T> where T: Genome{
+fn place_genom<T>(keys: Vec<(i32,i32)>, map: &mut HashMap<(i32,i32), T>, chance: i32, genom_num: i32) -> HashMap<(i32,i32), T> where T: Genome{
     let mut next_gen: HashMap<(i32,i32), T> = HashMap::new();
-    for _ in 0..100{
+    for _ in 0..genom_num{
         let k = gen_pos();
         let parent1 = keys.get(gen_vec_pos(keys.len())).expect("vec error");
         let parent2 = keys.get(gen_vec_pos(keys.len())).expect("vec error");
@@ -542,9 +553,11 @@ fn calculate_meat_efficiency(weight: f32) -> f32{
 
 const SINGLE: bool = false;
 fn main() {
-    let folder = "baseline/";
+    let folder = "slow_plant_decrease/";
     let file_name = "test";
     let mut completed = 0;
+    let mut h_died_out = 0;
+    let mut c_died_out = 0;
     let mut ha = 0;
     let mut ca = 0;
     let epochs = 40;
@@ -564,8 +577,14 @@ fn main() {
             }
             let die_out_txt = match sim.res.die_out.clone() {
                 Some(x) => match x {
-                    genome::EatingType::Carnivore => "Carnivore died out".to_owned(),
-                    genome::EatingType::Herbivore =>  "Herbivore died out".to_owned(),
+                    genome::EatingType::Carnivore => {
+                        c_died_out += 1;
+                        "Carnivore died out".to_owned()
+                    },
+                    genome::EatingType::Herbivore =>  {
+                        h_died_out += 1;
+                        "Herbivore died out".to_owned()
+                    },
                     genome::EatingType::Omnivore => panic!("Omnivore not supported"),
                 }
                 None => "working".to_owned(),
@@ -574,8 +593,8 @@ fn main() {
             let temp_ca = sim.res.get_average_carni();
             ha += temp_ha;
             ca += temp_ca;
-            println!("Simulation number: {} -> average herbi: {} average carni: {} -- {}", s, temp_ha, temp_ca, die_out_txt);
-            res_file.write(format!("Simulation number: {} -> average herbi: {} average carni: {} -- {}\n", s,temp_ha,temp_ca, die_out_txt).as_bytes()).expect("res file fail!");
+            println!("Simulation number: {} -> stoped at: {} - average herbi: {} average carni: {} -- {}", s, sim.res.epoch, temp_ha, temp_ca, die_out_txt);
+            res_file.write(format!("Simulation number: {} -> stoped at: {} - average herbi: {} average carni: {} -- {}\n", s, sim.res.epoch,temp_ha,temp_ca, die_out_txt).as_bytes()).expect("res file fail!");
             
             let o = sim.res.get_ahsa();
             res_file.write(get_7tupel_format("Average Herbi Start",o).as_bytes()).expect("res file fail!");
@@ -586,12 +605,16 @@ fn main() {
             let o = sim.res.get_acea();
             res_file.write(get_7tupel_format("Average Carni End",o).as_bytes()).expect("res file fail!");
         }
-        println!("Simulations completed: {}", completed);
-        res_file.write(format!("Simulations completed: {} Herbi average: {ha} Canri average: {ca}\n", completed).as_bytes()).expect("res file fail!");
+        println!("Simulations completed: {} Herbivores died out: {} times and Carnivores died out: {} times", completed, h_died_out, c_died_out);
+        res_file.write(format!("Simulations completed: {} Herbivores died out: {} times and Carnivores died out: {} times \nHerbi average: {} Canri average: {}\n", completed,h_died_out,c_died_out, ha/num_of_simulations, ca/num_of_simulations).as_bytes()).expect("res file fail!");
         
     }
 }
 
 fn get_7tupel_format(s: &str, o: (f32,f32,f32,f32,i32,i32,i32)) -> String {
     format!("{} w: {}, s: {}, p: {}, d: {}, eval- 1: {}, 2: {}, 3: {} \n", s,o.0,o.1,o.2,o.3,o.4,o.5,o.6)
+}
+
+fn average_7_tupel(a: (f32,f32,f32,f32,i32,i32,i32), b: usize) -> (f32,f32,f32,f32,i32,i32,i32){
+    (a.0/b as f32,a.1/b as f32,a.2/b as f32,a.3/b as f32, a.4/b as i32, a.5/b as i32, a.6/b as i32)
 }
