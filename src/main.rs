@@ -11,11 +11,11 @@ const PLANT_ENERGY: f32 = 1.0;
 const WATCHING: bool = false;
 const MILLIS_PER_FRAME: u64 = 1000; //in milliseconds
 const MEAT_EFFICIENCY: f32 = 2.0;
-const STRENGTH_CONTEST: bool = true;
-const CARNI_EXTRA_MUTATION_CHANCE: i32 = 0;
+const STRENGTH_CONTEST: bool = false;
+const CARNI_EXTRA_MUTATION_CHANCE: i32 = 150;
 const HERBI_EXTRA_MUTATION_CHANCE: i32 = 0;
-const SLOW_PLANT_DECREASE: i32 = 3;
-const HALF_PLANT_AT: u16 = 100;
+const SLOW_PLANT_DECREASE: i32 = 0;
+const HALF_PLANT_AT: u16 = 50;
 
 const HERBI_NUM: i32 = 100;
 const CARNI_NUM: i32 = 100;
@@ -142,6 +142,10 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             file_print(&mut self.file, format!("###########################\n"));
             let herbi_keys: Vec<(i32,i32)> = self.herbi.keys().cloned().collect();
             let carni_keys: Vec<(i32, i32)> = self.carni.keys().cloned().collect();
+            if e < 1 { 
+                self.res.average_herbi_start_attributes = (0.0,0.0,0.0,0.0,0,0,0);
+                self.res.average_carni_start_attributes = (0.0,0.0,0.0,0.0,0,0,0);
+            }
             self.res.average_herbi_end_attributes = (0.0,0.0,0.0,0.0,0,0,0);
             self.res.average_carni_end_attributes = (0.0,0.0,0.0,0.0,0,0,0);
             let herbi_len = herbi_keys.len();
@@ -150,7 +154,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
             for g in herbi_keys{
                 let h = self.herbi.get(&g).expect("herbi not available");
                 file_print(&mut self.file,format!("{}\n",h.to_string()));
-                if e == 1 {
+                if e < 1 {
                     
                     self.res.average_herbi_start_attributes = add_7_tupel(self.res.average_herbi_start_attributes, 
                         (h.get_weight(),h.get_speed(),h.get_power(),h.get_detection_range(),h.get_eval(1),h.get_eval(2),h.get_eval(3))
@@ -167,7 +171,7 @@ impl<T : genome::Genome,E : genome::Genome> Simulation for BasicSimulation<T, E>
                 let h = self.carni.get(&g).expect("carni not available");
                 file_print(&mut self.file,format!("{}\n",h.to_string()));
                 
-                if e == 1 {
+                if e < 1 {
                     let h = self.carni.get(&g).expect("carni not available");
                     self.res.average_carni_start_attributes = add_7_tupel(self.res.average_carni_start_attributes, 
                         (h.get_weight(),h.get_speed(),h.get_power(),h.get_detection_range(),h.get_eval(1),h.get_eval(2),h.get_eval(3))
@@ -550,10 +554,10 @@ fn compare_strength<T: Genome,E: Genome>(carni: &E, herbi: &T) -> f32 {
 fn calculate_meat_efficiency(weight: f32) -> f32{
     weight * MEAT_EFFICIENCY
 }
-
-const SINGLE: bool = false;
+///change this to false to start a sequenz of 100 Simulations
+const SINGLE: bool = true;
 fn main() {
-    let folder = "slow_plant_decrease/";
+    let folder = "output/";
     let file_name = "test";
     let mut completed = 0;
     let mut h_died_out = 0;
@@ -562,14 +566,14 @@ fn main() {
     let mut ca = 0;
     let epochs = 40;
     let num_of_simulations = 100;
-    let mut res_file = File::create(format!("data/{}.txt", format!("{}res",folder))).expect("file problem");
+    let mut res_file = File::create(format!("sim_data/{}.txt", format!("{}res",folder))).expect("file problem");
     if SINGLE {
-        let file = File::create(format!("data/{}{}.txt",folder, file_name)).expect("file problem");
+        let file = File::create(format!("sim_data/{}{}.txt",folder, file_name)).expect("file problem");
         let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(40, 30, 150, file);
         sim.run();
     }else{
         for s in 0..num_of_simulations{
-            let file = File::create(format!("data/{}.txt", format!("{}test{}",folder,s))).expect("file problem");
+            let file = File::create(format!("sim_data/{}.txt", format!("{}test{}",folder,s))).expect("file problem");
             let mut sim:BasicSimulation<BasicGenome, BasicGenome> = BasicSimulation::new(epochs, 30, 150, file);
             sim.run();
             if sim.res.epoch == epochs {

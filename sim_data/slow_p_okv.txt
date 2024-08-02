@@ -1,0 +1,502 @@
+Simulation number: 0 -> stoped at: 30 - average herbi: 8 average carni: 18 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.1972886, s: 3.8597229, p: 0.25654995, d: 4.3445115, eval- 1: -625, 2: -581, 3: 0 
+Average Carni End w: 0.864184, s: 4.2790737, p: 0.74565905, d: 4.674838, eval- 1: 37, 2: 748, 3: 0 
+Simulation number: 1 -> stoped at: 40 - average herbi: 5 average carni: 40 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.1051915, s: 3.3407905, p: 1.2994773, d: 0.26520294, eval- 1: 820, 2: -112, 3: 0 
+Average Carni End w: 4.0933, s: 4.5680723, p: 4.754473, d: 4.9444537, eval- 1: 283, 2: 642, 3: 0 
+Simulation number: 2 -> stoped at: 40 - average herbi: 8 average carni: 35 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.310178, s: 2.9599319, p: 0.73930055, d: 4.809986, eval- 1: -849, 2: -724, 3: 0 
+Average Carni End w: 2.8414938, s: 4.992459, p: 0.88273007, d: 2.641539, eval- 1: 689, 2: 861, 3: 0 
+Simulation number: 3 -> stoped at: 40 - average herbi: 11 average carni: 16 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.5496342, s: 0.97492844, p: 0.023287833, d: 2.9586473, eval- 1: 340, 2: 82, 3: 0 
+Average Carni End w: 2.2822335, s: 3.7355227, p: 0.30261922, d: 3.649156, eval- 1: 217, 2: 892, 3: 0 
+Simulation number: 4 -> stoped at: 8 - average herbi: 15 average carni: 14 -- Carnivore died out
+Average Herbi Start w: 0.00000000000002522854, s: 0.000000000000027433136, p: 0.000000000000027486261, d: 0.000000000000026863542, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000026979612, s: 0.000000000000025728074, p: 0.00000000000002245309, d: 0.000000000000023396773, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.1776236, s: 2.2786717, p: 0.76967335, d: 1.2037292, eval- 1: -166, 2: -515, 3: 0 
+Average Carni End w: 1.8858572, s: 2.6821089, p: 3.1461248, d: 3.379703, eval- 1: 41, 2: 622, 3: 0 
+Simulation number: 5 -> stoped at: 40 - average herbi: 18 average carni: 19 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.58756804, s: 3.2506044, p: 0.5226636, d: 0.5556593, eval- 1: 106, 2: -53, 3: 0 
+Average Carni End w: 1.2606075, s: 1.6736596, p: 3.5302474, d: 3.929637, eval- 1: 297, 2: 688, 3: 0 
+Simulation number: 6 -> stoped at: 38 - average herbi: 5 average carni: 48 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 4.1802874, s: 3.7775376, p: 0.38273147, d: 1.9765974, eval- 1: 809, 2: -977, 3: 0 
+Average Carni End w: 3.3522422, s: 5.7492104, p: 3.5187674, d: 4.5914083, eval- 1: 205, 2: 898, 3: 0 
+Simulation number: 7 -> stoped at: 36 - average herbi: 7 average carni: 19 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.103057116, s: 3.956011, p: 2.762391, d: 1.5201166, eval- 1: -209, 2: 964, 3: 0 
+Average Carni End w: 4.331778, s: 6.0186286, p: 0.16463469, d: 1.5760286, eval- 1: 862, 2: 849, 3: 0 
+Simulation number: 8 -> stoped at: 40 - average herbi: 12 average carni: 31 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.5694938, s: 2.6869624, p: 0.87288225, d: 3.5995157, eval- 1: -294, 2: -443, 3: 0 
+Average Carni End w: 0.51567155, s: 1.5556366, p: 2.0280936, d: 1.801844, eval- 1: 578, 2: 730, 3: 0 
+Simulation number: 9 -> stoped at: 35 - average herbi: 8 average carni: 44 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.302163, s: 0.72332156, p: 0.17687102, d: 1.4424132, eval- 1: -423, 2: 533, 3: 0 
+Average Carni End w: 4.2481523, s: 4.940164, p: 1.9017218, d: 5.114171, eval- 1: 168, 2: 778, 3: 0 
+Simulation number: 10 -> stoped at: 8 - average herbi: 16 average carni: 11 -- Carnivore died out
+Average Herbi Start w: 0.00000000000002669203, s: 0.000000000000029979342, p: 0.000000000000026697535, d: 0.000000000000024428198, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000027189919, s: 0.000000000000027848595, p: 0.00000000000002755609, d: 0.000000000000025753364, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.14480764, s: 2.1324425, p: 0.48494908, d: 1.7715888, eval- 1: -581, 2: -262, 3: 0 
+Average Carni End w: 3.6860952, s: 1.9431708, p: 2.7078042, d: 4.5408707, eval- 1: 390, 2: 296, 3: 0 
+Simulation number: 11 -> stoped at: 12 - average herbi: 7 average carni: 15 -- Carnivore died out
+Average Herbi Start w: 0.00000000000000000000028822271, s: 0.00000000000000000000028046017, p: 0.00000000000000000000027568692, d: 0.00000000000000000000026163898, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000000000000000026577143, s: 0.00000000000000000000026965237, p: 0.0000000000000000000002594809, d: 0.00000000000000000000029457712, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.1624912, s: 3.0682464, p: 0.7586368, d: 1.0568744, eval- 1: -831, 2: -172, 3: 0 
+Average Carni End w: 2.2782621, s: 3.5387123, p: 1.4000978, d: 4.2617226, eval- 1: -133, 2: 833, 3: 0 
+Simulation number: 12 -> stoped at: 40 - average herbi: 6 average carni: 29 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.329457, s: 3.826351, p: 1.5139323, d: 0.8359986, eval- 1: 84, 2: -413, 3: 0 
+Average Carni End w: 0.69518477, s: 5.093557, p: 3.214957, d: 7.9832234, eval- 1: 280, 2: 956, 3: 0 
+Simulation number: 13 -> stoped at: 6 - average herbi: 7 average carni: 15 -- Carnivore died out
+Average Herbi Start w: 0.0000000002589698, s: 0.00000000027528352, p: 0.00000000029237288, d: 0.00000000025419697, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000027073516, s: 0.0000000002429094, p: 0.0000000002632827, d: 0.0000000002687856, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.10259966, s: 3.628623, p: 0.86157274, d: 3.8600771, eval- 1: -238, 2: 970, 3: 0 
+Average Carni End w: 2.428475, s: 3.0046134, p: 2.7264338, d: 3.36985, eval- 1: -418, 2: 549, 3: 0 
+Simulation number: 14 -> stoped at: 40 - average herbi: 11 average carni: 44 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.0389333, s: 1.9235098, p: 0.011470859, d: 0.55039597, eval- 1: -786, 2: -238, 3: 0 
+Average Carni End w: 2.48279, s: 6.563483, p: 2.2318363, d: 4.142053, eval- 1: 494, 2: 632, 3: 0 
+Simulation number: 15 -> stoped at: 40 - average herbi: 13 average carni: 15 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.8106234, s: 3.0237877, p: 0.52852505, d: 0.054074448, eval- 1: 706, 2: -160, 3: 0 
+Average Carni End w: 0.7039016, s: 6.4776583, p: 1.1018183, d: 4.931457, eval- 1: 460, 2: 834, 3: 0 
+Simulation number: 16 -> stoped at: 39 - average herbi: 6 average carni: 47 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.2866976, s: 5.4033513, p: 0.20500241, d: 1.765863, eval- 1: 667, 2: 73, 3: 0 
+Average Carni End w: 0.30861026, s: 4.845094, p: 4.6486797, d: 6.077033, eval- 1: 71, 2: 570, 3: 0 
+Simulation number: 17 -> stoped at: 40 - average herbi: 7 average carni: 25 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.6292281, s: 3.4793725, p: 1.9493725, d: 2.7928991, eval- 1: -786, 2: 242, 3: 0 
+Average Carni End w: 3.0113664, s: 4.3481536, p: 1.3413655, d: 3.6285615, eval- 1: 230, 2: 428, 3: 0 
+Simulation number: 18 -> stoped at: 40 - average herbi: 6 average carni: 45 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.6448183, s: 3.5982869, p: 0.02144655, d: 3.9975755, eval- 1: -958, 2: -322, 3: 0 
+Average Carni End w: 0.9821764, s: 4.8923116, p: 1.440766, d: 4.9918523, eval- 1: 143, 2: 634, 3: 0 
+Simulation number: 19 -> stoped at: 40 - average herbi: 7 average carni: 41 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.0912488, s: 5.514415, p: 2.9571054, d: 0.41652492, eval- 1: 568, 2: -453, 3: 0 
+Average Carni End w: 1.294968, s: 3.792425, p: 0.18129694, d: 4.728796, eval- 1: 148, 2: 271, 3: 0 
+Simulation number: 20 -> stoped at: 40 - average herbi: 14 average carni: 36 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.7096135, s: 3.1938348, p: 1.0437642, d: 0.015317818, eval- 1: 603, 2: 305, 3: 0 
+Average Carni End w: 0.48146492, s: 4.2466207, p: 0.125093, d: 0.8491148, eval- 1: 511, 2: 365, 3: 0 
+Simulation number: 21 -> stoped at: 40 - average herbi: 10 average carni: 46 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.9355626, s: 2.3351507, p: 0.15881601, d: 0.27317235, eval- 1: -441, 2: -933, 3: 0 
+Average Carni End w: 2.69868, s: 3.7306318, p: 2.3036857, d: 4.7528048, eval- 1: -270, 2: 478, 3: 0 
+Simulation number: 22 -> stoped at: 40 - average herbi: 7 average carni: 43 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.7397844, s: 4.0807204, p: 1.695099, d: 1.6235839, eval- 1: -265, 2: -3, 3: 0 
+Average Carni End w: 2.214263, s: 5.341243, p: 3.4713237, d: 4.13457, eval- 1: 181, 2: 816, 3: 0 
+Simulation number: 23 -> stoped at: 40 - average herbi: 8 average carni: 38 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.5446779, s: 4.4657598, p: 0.9749984, d: 1.8010201, eval- 1: -780, 2: 84, 3: 0 
+Average Carni End w: 4.350352, s: 6.5529957, p: 0.27796274, d: 2.7448106, eval- 1: 250, 2: 902, 3: 0 
+Simulation number: 24 -> stoped at: 40 - average herbi: 19 average carni: 35 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.8097478, s: 1.6925387, p: 1.302839, d: 0.5295765, eval- 1: 111, 2: 779, 3: 0 
+Average Carni End w: 1.7482142, s: 2.8716807, p: 0.5541385, d: 1.5811309, eval- 1: 622, 2: 824, 3: 0 
+Simulation number: 25 -> stoped at: 40 - average herbi: 6 average carni: 48 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.615684, s: 5.995351, p: 1.1888325, d: 0.4426278, eval- 1: -804, 2: -469, 3: 0 
+Average Carni End w: 2.8329468, s: 4.2273793, p: 4.4034667, d: 3.7960663, eval- 1: 55, 2: 552, 3: 0 
+Simulation number: 26 -> stoped at: 6 - average herbi: 10 average carni: 23 -- Carnivore died out
+Average Herbi Start w: 0.0000000002335995, s: 0.00000000025180885, p: 0.00000000026877783, d: 0.0000000002462774, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000025716998, s: 0.00000000024809327, p: 0.00000000026017016, d: 0.0000000002815485, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.22190009, s: 3.9880393, p: 1.4016964, d: 2.5790524, eval- 1: -383, 2: 190, 3: 0 
+Average Carni End w: 2.5568275, s: 3.6933749, p: 2.9178193, d: 4.0535283, eval- 1: 195, 2: 339, 3: 0 
+Simulation number: 27 -> stoped at: 16 - average herbi: 5 average carni: 44 -- Herbivore died out
+Average Herbi Start w: 0.0000000000000000000000000000026998867, s: 0.0000000000000000000000000000026843527, p: 0.0000000000000000000000000000024813774, d: 0.0000000000000000000000000000026107066, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000000002859354, s: 0.0000000000000000000000000000028110889, p: 0.0000000000000000000000000000026365112, d: 0.000000000000000000000000000002434654, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.4521832, s: 1.8934734, p: 3.101444, d: 0.4310173, eval- 1: -463, 2: 205, 3: 0 
+Average Carni End w: 2.284172, s: 4.3186903, p: 2.5144267, d: 4.181853, eval- 1: -88, 2: 689, 3: 0 
+Simulation number: 28 -> stoped at: 26 - average herbi: 8 average carni: 36 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.7039359, s: 2.8801293, p: 0.77936965, d: 3.477037, eval- 1: -853, 2: -459, 3: 0 
+Average Carni End w: 0.4976709, s: 4.705423, p: 4.188745, d: 4.996733, eval- 1: 84, 2: 444, 3: 0 
+Simulation number: 29 -> stoped at: 7 - average herbi: 9 average carni: 14 -- Carnivore died out
+Average Herbi Start w: 0.0000000000024992825, s: 0.000000000002212701, p: 0.0000000000022591124, d: 0.0000000000026328416, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.0000000000026112983, s: 0.0000000000027591482, p: 0.0000000000024898874, d: 0.0000000000026778122, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.30929753, s: 2.769957, p: 0.41642952, d: 2.8223329, eval- 1: -439, 2: -688, 3: 0 
+Average Carni End w: 1.7159086, s: 4.4450455, p: 2.4397817, d: 4.7204876, eval- 1: 94, 2: 242, 3: 0 
+Simulation number: 30 -> stoped at: 34 - average herbi: 8 average carni: 10 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.22642529, s: 2.1820498, p: 1.8429357, d: 5.1835127, eval- 1: -643, 2: 508, 3: 0 
+Average Carni End w: 1.3129656, s: 3.6831918, p: 2.5699427, d: 5.278436, eval- 1: 943, 2: 49, 3: 0 
+Simulation number: 31 -> stoped at: 40 - average herbi: 7 average carni: 45 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.305572, s: 3.43454, p: 1.2576399, d: 2.1338966, eval- 1: 476, 2: 859, 3: 0 
+Average Carni End w: 2.8458006, s: 3.9788187, p: 4.528537, d: 1.8374175, eval- 1: 533, 2: 336, 3: 0 
+Simulation number: 32 -> stoped at: 22 - average herbi: 10 average carni: 17 -- Carnivore died out
+Average Herbi Start w: 0.000000000000000000000000000000000000000002501, s: 0.000000000000000000000000000000000000000002615, p: 0.000000000000000000000000000000000000000002475, d: 0.00000000000000000000000000000000000000000286, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000000000000000000002773, s: 0.00000000000000000000000000000000000000000271, p: 0.000000000000000000000000000000000000000002479, d: 0.000000000000000000000000000000000000000002918, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.10000002, s: 3.314922, p: 1.8429776, d: 3.5532584, eval- 1: -946, 2: -282, 3: 0 
+Average Carni End w: 1.1112847, s: 1.5226802, p: 0.286897, d: 4.7631903, eval- 1: 445, 2: 358, 3: 0 
+Simulation number: 33 -> stoped at: 40 - average herbi: 7 average carni: 17 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.92032593, s: 1.59729, p: 0.5781104, d: 0.36917466, eval- 1: -551, 2: 88, 3: 0 
+Average Carni End w: 4.8556237, s: 6.781221, p: 0.5004688, d: 4.7742014, eval- 1: 95, 2: 537, 3: 0 
+Simulation number: 34 -> stoped at: 40 - average herbi: 8 average carni: 41 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.4399064, s: 3.5950456, p: 0.3784072, d: 2.5594916, eval- 1: -117, 2: 871, 3: 0 
+Average Carni End w: 2.4030843, s: 5.2316685, p: 4.5064416, d: 3.4671652, eval- 1: 754, 2: 861, 3: 0 
+Simulation number: 35 -> stoped at: 17 - average herbi: 6 average carni: 37 -- Herbivore died out
+Average Herbi Start w: 0.000000000000000000000000000000030768462, s: 0.00000000000000000000000000000002883443, p: 0.000000000000000000000000000000027195276, d: 0.00000000000000000000000000000002771591, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000000000000000000000000002848732, s: 0.000000000000000000000000000000029209536, p: 0.000000000000000000000000000000028550345, d: 0.0000000000000000000000000000000261852, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.2155201, s: 0.7287824, p: 0.53794014, d: 4.604339, eval- 1: -209, 2: -878, 3: 0 
+Average Carni End w: 3.9523094, s: 3.0991035, p: 2.222167, d: 5.559263, eval- 1: 86, 2: 443, 3: 0 
+Simulation number: 36 -> stoped at: 40 - average herbi: 8 average carni: 46 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.297839, s: 5.183603, p: 0.22998899, d: 1.5593977, eval- 1: -382, 2: 853, 3: 0 
+Average Carni End w: 4.287555, s: 5.7080965, p: 4.309457, d: 4.550447, eval- 1: 215, 2: 844, 3: 0 
+Simulation number: 37 -> stoped at: 40 - average herbi: 12 average carni: 25 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.4229198, s: 2.7961996, p: 0.22091912, d: 0.15775464, eval- 1: 214, 2: 268, 3: 0 
+Average Carni End w: 0.9608432, s: 2.9141843, p: 0.41675162, d: 2.3054376, eval- 1: 90, 2: 900, 3: 0 
+Simulation number: 38 -> stoped at: 16 - average herbi: 9 average carni: 27 -- Herbivore died out
+Average Herbi Start w: 0.0000000000000000000000000000029266535, s: 0.0000000000000000000000000000026971197, p: 0.0000000000000000000000000000027079376, d: 0.00000000000000000000000000000271046, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.0000000000000000000000000000028601675, s: 0.0000000000000000000000000000023700466, p: 0.000000000000000000000000000002633123, d: 0.0000000000000000000000000000025873977, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.1155224, s: 2.082369, p: 0.0792944, d: 3.5117662, eval- 1: -727, 2: -238, 3: 0 
+Average Carni End w: 0.9359777, s: 4.646915, p: 2.282546, d: 4.514553, eval- 1: 257, 2: 710, 3: 0 
+Simulation number: 39 -> stoped at: 40 - average herbi: 8 average carni: 35 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.013021, s: 3.9980729, p: 2.7023706, d: 1.8451444, eval- 1: 116, 2: -371, 3: 0 
+Average Carni End w: 0.495198, s: 2.9980938, p: 0.33027896, d: 2.049242, eval- 1: -725, 2: 992, 3: 0 
+Simulation number: 40 -> stoped at: 28 - average herbi: 6 average carni: 41 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 3.4612331, s: 3.9698977, p: 1.8450371, d: 1.648449, eval- 1: -65, 2: 377, 3: 0 
+Average Carni End w: 1.9699208, s: 4.9818206, p: 1.9348307, d: 3.769891, eval- 1: 452, 2: 708, 3: 0 
+Simulation number: 41 -> stoped at: 31 - average herbi: 4 average carni: 47 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 5.297466, s: 6.9229, p: 0.04868803, d: 2.2686698, eval- 1: 910, 2: 651, 3: 0 
+Average Carni End w: 2.1903012, s: 2.6290646, p: 2.5138104, d: 3.3850796, eval- 1: 308, 2: 782, 3: 0 
+Simulation number: 42 -> stoped at: 18 - average herbi: 13 average carni: 16 -- Carnivore died out
+Average Herbi Start w: 0.00000000000000000000000000000000027681728, s: 0.00000000000000000000000000000000025691644, p: 0.00000000000000000000000000000000024732341, d: 0.00000000000000000000000000000000029126376, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000000000000000000000000000025684565, s: 0.0000000000000000000000000000000002752428, p: 0.00000000000000000000000000000000027290867, d: 0.0000000000000000000000000000000002945042, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.10867994, s: 2.969832, p: 1.0469471, d: 0.38603956, eval- 1: -92, 2: 721, 3: 0 
+Average Carni End w: 3.677929, s: 1.5340893, p: 0.07302936, d: 4.4014387, eval- 1: -552, 2: 888, 3: 0 
+Simulation number: 43 -> stoped at: 40 - average herbi: 9 average carni: 40 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.2265491, s: 4.071793, p: 2.0428774, d: 1.7845871, eval- 1: 771, 2: -581, 3: 0 
+Average Carni End w: 2.5362504, s: 2.4593375, p: 2.8565824, d: 2.9507818, eval- 1: 279, 2: 632, 3: 0 
+Simulation number: 44 -> stoped at: 35 - average herbi: 7 average carni: 45 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.1421676, s: 4.0636277, p: 0.58084184, d: 1.4345473, eval- 1: -997, 2: 944, 3: 0 
+Average Carni End w: 1.5949652, s: 3.695249, p: 3.7387311, d: 5.923286, eval- 1: -65, 2: 590, 3: 0 
+Simulation number: 45 -> stoped at: 34 - average herbi: 12 average carni: 12 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.1966812, s: 3.6800876, p: 0.86428237, d: 4.6302485, eval- 1: -978, 2: 756, 3: 0 
+Average Carni End w: 1.4119205, s: 2.7963028, p: 0.019638484, d: 2.5349388, eval- 1: 205, 2: 851, 3: 0 
+Simulation number: 46 -> stoped at: 40 - average herbi: 13 average carni: 38 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.8680711, s: 1.8392899, p: 1.4446198, d: 0.20690434, eval- 1: -38, 2: 238, 3: 0 
+Average Carni End w: 0.27648854, s: 2.9342027, p: 0.95539373, d: 4.2163134, eval- 1: 417, 2: 216, 3: 0 
+Simulation number: 47 -> stoped at: 40 - average herbi: 6 average carni: 43 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.5736474, s: 3.8504734, p: 1.8721592, d: 2.487136, eval- 1: 307, 2: 461, 3: 0 
+Average Carni End w: 0.9110417, s: 5.4852095, p: 2.0150661, d: 4.9240603, eval- 1: 186, 2: 939, 3: 0 
+Simulation number: 48 -> stoped at: 40 - average herbi: 6 average carni: 17 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.6962337, s: 2.7279751, p: 2.5548065, d: 3.2223718, eval- 1: -766, 2: 556, 3: 0 
+Average Carni End w: 2.7039232, s: 3.6133208, p: 1.5504608, d: 5.070092, eval- 1: -101, 2: 941, 3: 0 
+Simulation number: 49 -> stoped at: 40 - average herbi: 14 average carni: 37 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.7524826, s: 2.3695128, p: 0.5263183, d: 0.31951568, eval- 1: -322, 2: 30, 3: 0 
+Average Carni End w: 0.11263442, s: 3.542949, p: 0.044643365, d: 3.4350848, eval- 1: 787, 2: 140, 3: 0 
+Simulation number: 50 -> stoped at: 40 - average herbi: 7 average carni: 19 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.59186846, s: 3.2719622, p: 0.05846221, d: 6.069048, eval- 1: -281, 2: 983, 3: 0 
+Average Carni End w: 0.6340687, s: 4.761187, p: 2.1953568, d: 3.7431703, eval- 1: 80, 2: 701, 3: 0 
+Simulation number: 51 -> stoped at: 18 - average herbi: 12 average carni: 16 -- Carnivore died out
+Average Herbi Start w: 0.00000000000000000000000000000000024611934, s: 0.00000000000000000000000000000000025937113, p: 0.00000000000000000000000000000000025679388, d: 0.00000000000000000000000000000000027634093, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000000000000000000000000000029135201, s: 0.00000000000000000000000000000000026884162, p: 0.00000000000000000000000000000000031709633, d: 0.00000000000000000000000000000000028299854, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.14069135, s: 1.7829758, p: 1.0007981, d: 0.9626028, eval- 1: -398, 2: -286, 3: 0 
+Average Carni End w: 0.4690934, s: 4.0260572, p: 2.5086634, d: 4.717817, eval- 1: 774, 2: 140, 3: 0 
+Simulation number: 52 -> stoped at: 40 - average herbi: 8 average carni: 40 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.86923045, s: 4.8370924, p: 0.8960885, d: 0.645514, eval- 1: 838, 2: 124, 3: 0 
+Average Carni End w: 0.18894629, s: 4.5699425, p: 0.86277986, d: 1.6315792, eval- 1: 51, 2: 268, 3: 0 
+Simulation number: 53 -> stoped at: 34 - average herbi: 5 average carni: 34 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.490004, s: 2.505035, p: 3.4660785, d: 4.9765267, eval- 1: -139, 2: 155, 3: 0 
+Average Carni End w: 0.4635197, s: 4.5929947, p: 1.3949584, d: 4.2215543, eval- 1: 858, 2: 899, 3: 0 
+Simulation number: 54 -> stoped at: 33 - average herbi: 7 average carni: 18 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.19949524, s: 2.624117, p: 3.7833276, d: 2.6362567, eval- 1: -334, 2: 366, 3: 0 
+Average Carni End w: 1.2147858, s: 5.839881, p: 0.8210037, d: 2.8026974, eval- 1: 324, 2: 367, 3: 0 
+Simulation number: 55 -> stoped at: 40 - average herbi: 10 average carni: 33 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.7678663, s: 2.8876288, p: 2.238066, d: 1.5380561, eval- 1: -817, 2: -369, 3: 0 
+Average Carni End w: 0.16062872, s: 3.707716, p: 1.8629375, d: 1.1639074, eval- 1: -769, 2: 614, 3: 0 
+Simulation number: 56 -> stoped at: 40 - average herbi: 16 average carni: 36 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.9343539, s: 3.23601, p: 0.04985059, d: 0.5058651, eval- 1: -756, 2: -575, 3: 0 
+Average Carni End w: 2.0304542, s: 3.758732, p: 1.8586165, d: 2.7269418, eval- 1: 115, 2: 324, 3: 0 
+Simulation number: 57 -> stoped at: 23 - average herbi: 5 average carni: 41 -- Herbivore died out
+Average Herbi Start w: 0.000000000000000000000000000000000000000000028, s: 0.000000000000000000000000000000000000000000031, p: 0.000000000000000000000000000000000000000000027, d: 0.000000000000000000000000000000000000000000031, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000000000000000000000032, s: 0.000000000000000000000000000000000000000000028, p: 0.000000000000000000000000000000000000000000028, d: 0.000000000000000000000000000000000000000000031, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 3.9856043, s: 1.5987825, p: 0.30078495, d: 3.786217, eval- 1: -477, 2: 504, 3: 0 
+Average Carni End w: 2.814827, s: 3.8204477, p: 2.0228965, d: 5.5435376, eval- 1: -66, 2: 522, 3: 0 
+Simulation number: 58 -> stoped at: 40 - average herbi: 13 average carni: 40 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.4532658, s: 2.5822113, p: 0.36094308, d: 0.22839895, eval- 1: 320, 2: -763, 3: 0 
+Average Carni End w: 0.24549298, s: 4.7913036, p: 0.12306871, d: 4.9624877, eval- 1: 597, 2: 563, 3: 0 
+Simulation number: 59 -> stoped at: 16 - average herbi: 4 average carni: 33 -- Herbivore died out
+Average Herbi Start w: 0.0000000000000000000000000000030148978, s: 0.0000000000000000000000000000026271086, p: 0.0000000000000000000000000000027268563, d: 0.0000000000000000000000000000027062175, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.0000000000000000000000000000026325469, s: 0.0000000000000000000000000000025765572, p: 0.0000000000000000000000000000024884241, d: 0.000000000000000000000000000002837912, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.1178632, s: 2.5832684, p: 0.6839928, d: 3.9713492, eval- 1: -239, 2: -980, 3: 0 
+Average Carni End w: 0.8548649, s: 4.3584056, p: 0.23177871, d: 4.590341, eval- 1: 24, 2: 635, 3: 0 
+Simulation number: 60 -> stoped at: 28 - average herbi: 7 average carni: 13 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.34176773, s: 4.827425, p: 4.1023617, d: 0.3835592, eval- 1: -404, 2: -250, 3: 0 
+Average Carni End w: 1.2499796, s: 4.7829146, p: 0.8628439, d: 3.920417, eval- 1: -498, 2: 331, 3: 0 
+Simulation number: 61 -> stoped at: 40 - average herbi: 6 average carni: 46 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.7133698, s: 3.773059, p: 0.2825635, d: 1.0198653, eval- 1: 156, 2: 327, 3: 0 
+Average Carni End w: 2.215914, s: 5.2143226, p: 2.3210325, d: 4.206358, eval- 1: 339, 2: 644, 3: 0 
+Simulation number: 62 -> stoped at: 40 - average herbi: 9 average carni: 40 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.2175009, s: 3.537519, p: 2.4741166, d: 3.0102928, eval- 1: -247, 2: -475, 3: 0 
+Average Carni End w: 3.9271839, s: 3.427371, p: 1.5430174, d: 1.7737976, eval- 1: 823, 2: 327, 3: 0 
+Simulation number: 63 -> stoped at: 40 - average herbi: 16 average carni: 33 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.352877, s: 1.6745175, p: 0.6106403, d: 1.0658244, eval- 1: 424, 2: 751, 3: 0 
+Average Carni End w: 1.6196222, s: 3.1945233, p: 0.31944668, d: 2.5948002, eval- 1: 697, 2: 475, 3: 0 
+Simulation number: 64 -> stoped at: 40 - average herbi: 9 average carni: 11 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.3946163, s: 4.4184256, p: 3.5565608, d: 1.4382417, eval- 1: 480, 2: -782, 3: 0 
+Average Carni End w: 0.9997557, s: 5.47904, p: 0.8837307, d: 3.2234719, eval- 1: 77, 2: 126, 3: 0 
+Simulation number: 65 -> stoped at: 40 - average herbi: 9 average carni: 18 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.7174191, s: 3.5155637, p: 0.7602983, d: 4.747069, eval- 1: -311, 2: -640, 3: 0 
+Average Carni End w: 2.6339722, s: 3.5869825, p: 2.2704194, d: 4.5030622, eval- 1: 773, 2: 229, 3: 0 
+Simulation number: 66 -> stoped at: 40 - average herbi: 9 average carni: 30 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.59878737, s: 2.6913633, p: 0.4733125, d: 4.98559, eval- 1: -257, 2: 422, 3: 0 
+Average Carni End w: 2.0784037, s: 2.6120183, p: 3.8185647, d: 5.0476394, eval- 1: 615, 2: 856, 3: 0 
+Simulation number: 67 -> stoped at: 40 - average herbi: 11 average carni: 27 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.8104395, s: 3.035003, p: 0, d: 4.3277664, eval- 1: -936, 2: 218, 3: 0 
+Average Carni End w: 1.5573772, s: 2.478445, p: 0.29071933, d: 2.6644835, eval- 1: 251, 2: 883, 3: 0 
+Simulation number: 68 -> stoped at: 40 - average herbi: 10 average carni: 31 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.80207163, s: 2.6753423, p: 2.3744316, d: 3.8961873, eval- 1: -528, 2: 890, 3: 0 
+Average Carni End w: 0.37425116, s: 2.739309, p: 0.21064763, d: 2.63823, eval- 1: 152, 2: 124, 3: 0 
+Simulation number: 69 -> stoped at: 10 - average herbi: 9 average carni: 11 -- Carnivore died out
+Average Herbi Start w: 0.0000000000000000024656004, s: 0.000000000000000002452157, p: 0.0000000000000000030133075, d: 0.0000000000000000025794426, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.0000000000000000026547834, s: 0.0000000000000000024722299, p: 0.0000000000000000026087254, d: 0.000000000000000002606558, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.40633738, s: 1.385506, p: 0.98987365, d: 1.1774049, eval- 1: 102, 2: 439, 3: 0 
+Average Carni End w: 2.4908597, s: 4.887905, p: 1.4331307, d: 4.881466, eval- 1: -151, 2: 760, 3: 0 
+Simulation number: 70 -> stoped at: 40 - average herbi: 9 average carni: 40 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.6866533, s: 3.7375317, p: 0.38583836, d: 2.998148, eval- 1: -392, 2: 916, 3: 0 
+Average Carni End w: 2.7438288, s: 5.6685853, p: 1.4049488, d: 3.4803317, eval- 1: 951, 2: 591, 3: 0 
+Simulation number: 71 -> stoped at: 39 - average herbi: 8 average carni: 19 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.101960205, s: 4.414013, p: 3.3922193, d: 1.1274308, eval- 1: 413, 2: -719, 3: 0 
+Average Carni End w: 3.036879, s: 1.7655804, p: 0.055791017, d: 3.7534769, eval- 1: 4, 2: 14, 3: 0 
+Simulation number: 72 -> stoped at: 40 - average herbi: 8 average carni: 16 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.1603748, s: 1.624927, p: 0.23002885, d: 1.1785172, eval- 1: 804, 2: 831, 3: 0 
+Average Carni End w: 0.36515245, s: 4.51268, p: 0.8010027, d: 4.9974413, eval- 1: -776, 2: 939, 3: 0 
+Simulation number: 73 -> stoped at: 40 - average herbi: 13 average carni: 17 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.45945054, s: 3.3648398, p: 0.043514196, d: 0.45542476, eval- 1: 884, 2: 135, 3: 0 
+Average Carni End w: 0.43610942, s: 2.698822, p: 0.20064972, d: 4.940178, eval- 1: 441, 2: 789, 3: 0 
+Simulation number: 74 -> stoped at: 38 - average herbi: 6 average carni: 42 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.9018695, s: 4.4665976, p: 1.903243, d: 1.3967028, eval- 1: -964, 2: 597, 3: 0 
+Average Carni End w: 2.325303, s: 5.5557313, p: 2.61053, d: 4.726044, eval- 1: -25, 2: 728, 3: 0 
+Simulation number: 75 -> stoped at: 40 - average herbi: 13 average carni: 18 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.7224513, s: 2.0454516, p: 1.2122871, d: 0.8160507, eval- 1: 865, 2: -949, 3: 0 
+Average Carni End w: 3.2368972, s: 3.6692712, p: 1.1548638, d: 4.987016, eval- 1: 255, 2: 813, 3: 0 
+Simulation number: 76 -> stoped at: 37 - average herbi: 12 average carni: 19 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.11418127, s: 1.6062822, p: 1.804617, d: 0.68252623, eval- 1: 678, 2: -72, 3: 0 
+Average Carni End w: 1.7617851, s: 1.7328582, p: 1.6837835, d: 4.690659, eval- 1: -4, 2: 900, 3: 0 
+Simulation number: 77 -> stoped at: 40 - average herbi: 10 average carni: 36 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.7309859, s: 2.0751393, p: 0.891303, d: 3.903668, eval- 1: -568, 2: -47, 3: 0 
+Average Carni End w: 1.0061394, s: 3.8712428, p: 0.06842611, d: 1.7125435, eval- 1: 231, 2: 940, 3: 0 
+Simulation number: 78 -> stoped at: 18 - average herbi: 21 average carni: 10 -- Carnivore died out
+Average Herbi Start w: 0.0000000000000000000000000000000002873699, s: 0.0000000000000000000000000000000002761315, p: 0.00000000000000000000000000000000027450502, d: 0.00000000000000000000000000000000027005837, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.00000000000000000000000000000000027138087, s: 0.00000000000000000000000000000000022851061, p: 0.00000000000000000000000000000000026302255, d: 0.00000000000000000000000000000000030440974, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.13998753, s: 1.57085, p: 0.06287019, d: 1.7588639, eval- 1: -900, 2: 269, 3: 0 
+Average Carni End w: 0.17749041, s: 0.75104654, p: 3.388635, d: 4.0124006, eval- 1: 698, 2: 835, 3: 0 
+Simulation number: 79 -> stoped at: 40 - average herbi: 13 average carni: 26 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.85928625, s: 1.9531646, p: 0.08676685, d: 0.8945597, eval- 1: 684, 2: -598, 3: 0 
+Average Carni End w: 0.60530454, s: 7.6077166, p: 1.3100934, d: 6.295879, eval- 1: 12, 2: 405, 3: 0 
+Simulation number: 80 -> stoped at: 36 - average herbi: 9 average carni: 12 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.4374822, s: 0.83487, p: 1.2632382, d: 2.531271, eval- 1: 793, 2: -217, 3: 0 
+Average Carni End w: 0.8225183, s: 5.190161, p: 0.8571848, d: 4.810746, eval- 1: -662, 2: 503, 3: 0 
+Simulation number: 81 -> stoped at: 27 - average herbi: 9 average carni: 16 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.40906376, s: 2.249547, p: 0.73140067, d: 5.276278, eval- 1: -352, 2: 775, 3: 0 
+Average Carni End w: 3.1478631, s: 5.6667604, p: 2.7457392, d: 3.6857712, eval- 1: 477, 2: 893, 3: 0 
+Simulation number: 82 -> stoped at: 34 - average herbi: 9 average carni: 15 -- Carnivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.23034759, s: 0.87340486, p: 2.338949, d: 0.38953173, eval- 1: 181, 2: -260, 3: 0 
+Average Carni End w: 2.3302753, s: 4.509614, p: 0.34924978, d: 2.820695, eval- 1: 152, 2: 843, 3: 0 
+Simulation number: 83 -> stoped at: 40 - average herbi: 9 average carni: 41 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.8278742, s: 0.83622867, p: 0.6966706, d: 1.1222906, eval- 1: -706, 2: -100, 3: 0 
+Average Carni End w: 2.637246, s: 5.076428, p: 1.532789, d: 5.098555, eval- 1: -56, 2: 332, 3: 0 
+Simulation number: 84 -> stoped at: 40 - average herbi: 15 average carni: 35 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.91359615, s: 2.43218, p: 0.031960294, d: 0.8299819, eval- 1: -562, 2: 387, 3: 0 
+Average Carni End w: 0.74908257, s: 3.345069, p: 1.6719158, d: 3.4077842, eval- 1: 904, 2: 413, 3: 0 
+Simulation number: 85 -> stoped at: 28 - average herbi: 8 average carni: 43 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.4501692, s: 4.6120543, p: 0.28443176, d: 3.2975442, eval- 1: -1040, 2: -928, 3: 0 
+Average Carni End w: 1.9702812, s: 3.5727637, p: 1.3684032, d: 4.0518103, eval- 1: 169, 2: 351, 3: 0 
+Simulation number: 86 -> stoped at: 40 - average herbi: 11 average carni: 35 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.127151, s: 1.7947159, p: 0.45714334, d: 1.2771995, eval- 1: 104, 2: -136, 3: 0 
+Average Carni End w: 1.5667945, s: 3.2633014, p: 1.873932, d: 3.9324803, eval- 1: -68, 2: 182, 3: 0 
+Simulation number: 87 -> stoped at: 7 - average herbi: 8 average carni: 20 -- Carnivore died out
+Average Herbi Start w: 0.0000000000026023886, s: 0.0000000000026465588, p: 0.0000000000027165624, d: 0.0000000000024944454, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.0000000000027167467, s: 0.0000000000027566742, p: 0.000000000002491745, d: 0.0000000000026565427, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.17324488, s: 1.8138164, p: 3.07324, d: 0.6753086, eval- 1: 175, 2: -931, 3: 0 
+Average Carni End w: 2.105681, s: 2.782304, p: 2.1281998, d: 3.248742, eval- 1: 191, 2: 716, 3: 0 
+Simulation number: 88 -> stoped at: 40 - average herbi: 7 average carni: 45 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.9317051, s: 3.6807868, p: 0.91268396, d: 3.6045115, eval- 1: -401, 2: 357, 3: 0 
+Average Carni End w: 1.8088924, s: 5.359966, p: 2.7695715, d: 4.478453, eval- 1: 375, 2: 623, 3: 0 
+Simulation number: 89 -> stoped at: 8 - average herbi: 12 average carni: 23 -- Carnivore died out
+Average Herbi Start w: 0.000000000000025593553, s: 0.000000000000026972983, p: 0.000000000000026202649, d: 0.000000000000025580388, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000025771362, s: 0.000000000000028354516, p: 0.000000000000026469705, d: 0.000000000000025115548, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.13001338, s: 2.3597388, p: 1.4049286, d: 0.7001898, eval- 1: -409, 2: -954, 3: 0 
+Average Carni End w: 3.2558892, s: 4.108759, p: 2.572965, d: 3.3722908, eval- 1: 71, 2: 489, 3: 0 
+Simulation number: 90 -> stoped at: 8 - average herbi: 8 average carni: 18 -- Carnivore died out
+Average Herbi Start w: 0.000000000000023976997, s: 0.000000000000028094778, p: 0.000000000000026363831, d: 0.000000000000026497556, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000026111771, s: 0.000000000000028734966, p: 0.000000000000027128385, d: 0.000000000000026121947, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.18747683, s: 2.1227071, p: 2.6530194, d: 3.8447375, eval- 1: 868, 2: 110, 3: 0 
+Average Carni End w: 1.6178625, s: 3.862313, p: 0.8009924, d: 3.1367054, eval- 1: 183, 2: 314, 3: 0 
+Simulation number: 91 -> stoped at: 14 - average herbi: 4 average carni: 42 -- Herbivore died out
+Average Herbi Start w: 0.000000000000000000000000028558783, s: 0.00000000000000000000000002827893, p: 0.000000000000000000000000026781036, d: 0.000000000000000000000000025319702, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000027313896, s: 0.00000000000000000000000002876199, p: 0.000000000000000000000000027523708, d: 0.000000000000000000000000029817127, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 4.070695, s: 3.568037, p: 1.1141548, d: 3.2497072, eval- 1: -206, 2: 297, 3: 0 
+Average Carni End w: 1.646118, s: 3.800533, p: 2.8235908, d: 5.144621, eval- 1: 168, 2: 765, 3: 0 
+Simulation number: 92 -> stoped at: 18 - average herbi: 16 average carni: 18 -- Carnivore died out
+Average Herbi Start w: 0.00000000000000000000000000000000030186957, s: 0.00000000000000000000000000000000027911275, p: 0.0000000000000000000000000000000002677589, d: 0.00000000000000000000000000000000025164028, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000000000000237196, s: 0.00000000000000000000000000000000025274368, p: 0.0000000000000000000000000000000002555114, d: 0.00000000000000000000000000000000026285456, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.23778738, s: 1.2007718, p: 0.024118766, d: 0.8961048, eval- 1: -677, 2: 390, 3: 0 
+Average Carni End w: 2.507374, s: 2.6673942, p: 0.6742676, d: 4.878607, eval- 1: 356, 2: 446, 3: 0 
+Simulation number: 93 -> stoped at: 17 - average herbi: 6 average carni: 36 -- Herbivore died out
+Average Herbi Start w: 0.000000000000000000000000000000030229016, s: 0.000000000000000000000000000000026130505, p: 0.000000000000000000000000000000025450887, d: 0.000000000000000000000000000000025854164, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000000000027967038, s: 0.000000000000000000000000000000027165974, p: 0.000000000000000000000000000000027524244, d: 0.000000000000000000000000000000029629696, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.6940866, s: 2.9679554, p: 0.1268449, d: 5.1835914, eval- 1: -876, 2: 508, 3: 0 
+Average Carni End w: 2.0730858, s: 4.8396482, p: 1.527763, d: 4.472767, eval- 1: 711, 2: 712, 3: 0 
+Simulation number: 94 -> stoped at: 7 - average herbi: 6 average carni: 38 -- Herbivore died out
+Average Herbi Start w: 0.000000000002468112, s: 0.0000000000023500975, p: 0.000000000002667265, d: 0.0000000000024594124, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.0000000000032274487, s: 0.0000000000026523625, p: 0.000000000002491134, d: 0.0000000000027049383, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 4.214205, s: 2.7471676, p: 2.431914, d: 1.5098823, eval- 1: 102, 2: -551, 3: 0 
+Average Carni End w: 2.8005276, s: 3.9936123, p: 3.336262, d: 3.3695462, eval- 1: 103, 2: 459, 3: 0 
+Simulation number: 95 -> stoped at: 40 - average herbi: 7 average carni: 27 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 2.3065684, s: 4.167234, p: 2.4311168, d: 0.22026467, eval- 1: -165, 2: -58, 3: 0 
+Average Carni End w: 1.911229, s: 2.8164349, p: 0.36400187, d: 4.4801154, eval- 1: 753, 2: 893, 3: 0 
+Simulation number: 96 -> stoped at: 8 - average herbi: 10 average carni: 10 -- Carnivore died out
+Average Herbi Start w: 0.000000000000026346546, s: 0.000000000000024392816, p: 0.000000000000024283196, d: 0.000000000000029651655, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000024488912, s: 0.000000000000025713745, p: 0.000000000000027582354, d: 0.000000000000029527352, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.29667008, s: 1.4587773, p: 0.4935876, d: 3.2636576, eval- 1: 377, 2: 545, 3: 0 
+Average Carni End w: 0.82086617, s: 3.2211595, p: 1.0710936, d: 3.9704754, eval- 1: 188, 2: 248, 3: 0 
+Simulation number: 97 -> stoped at: 15 - average herbi: 14 average carni: 13 -- Carnivore died out
+Average Herbi Start w: 0.00000000000000000000000000028924873, s: 0.0000000000000000000000000002912553, p: 0.00000000000000000000000000028904157, d: 0.00000000000000000000000000027399223, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0.000000000000000000000000000266849, s: 0.00000000000000000000000000025996556, p: 0.0000000000000000000000000002598686, d: 0.00000000000000000000000000026077017, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 0.25829032, s: 1.6647353, p: 0.32715213, d: 0.74974173, eval- 1: -196, 2: 199, 3: 0 
+Average Carni End w: 1.8467777, s: 4.298389, p: 2.1878672, d: 4.988852, eval- 1: 436, 2: 311, 3: 0 
+Simulation number: 98 -> stoped at: 28 - average herbi: 6 average carni: 42 -- Herbivore died out
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 5.0439196, s: 1.5660614, p: 0.8980271, d: 2.1656752, eval- 1: -786, 2: 284, 3: 0 
+Average Carni End w: 1.3305894, s: 6.020809, p: 1.4640417, d: 3.8801653, eval- 1: -243, 2: 513, 3: 0 
+Simulation number: 99 -> stoped at: 40 - average herbi: 12 average carni: 36 -- working
+Average Herbi Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Carni Start w: 0, s: 0, p: 0, d: 0, eval- 1: 0, 2: 0, 3: 0 
+Average Herbi End w: 1.4751934, s: 2.5000336, p: 0.28419667, d: 0.14042199, eval- 1: 688, 2: 391, 3: 0 
+Average Carni End w: 1.1843939, s: 3.4950812, p: 2.112547, d: 3.8751392, eval- 1: 437, 2: 807, 3: 0 
+Simulations completed: 53 Herbivores died out: 21 times and Carnivores died out: 26 times 
+Herbi average: 9 Canri average: 29
